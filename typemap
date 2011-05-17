@@ -1,0 +1,198 @@
+# this typemap is only used by xsubpp
+# to marshal THIS in xs code
+QSqlQueryModel *                        		T_PTROBJ_0000
+QSqlIndex *                             		T_PTROBJ_0001
+QSysInfo *                              		T_PTROBJ_0002
+QFlag *                                 		T_PTROBJ_0003
+QSqlTableModel *                        		T_PTROBJ_0004
+QSqlError *                             		T_PTROBJ_0005
+QIncompatibleFlag *                     		T_PTROBJ_0006
+QSqlDriverCreatorBase *                 		T_PTROBJ_0007
+QInternal *                             		T_PTROBJ_0008
+QSqlDriverFactoryInterface *            		T_PTROBJ_0009
+QSqlRelation *                          		T_PTROBJ_0010
+QSqlRecord *                            		T_PTROBJ_0011
+QSqlDriver *                            		T_PTROBJ_0012
+QSqlQuery *                             		T_PTROBJ_0013
+QSqlRelationalTableModel *              		T_PTROBJ_0014
+QSqlResult *                            		T_PTROBJ_0015
+QSqlDatabase *                          		T_PTROBJ_0016
+QSqlField *                             		T_PTROBJ_0017
+QBool *                                 		T_PTROBJ_0018
+
+################################################################
+INPUT
+T_PTROBJ_0000
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlQueryModel\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlQueryModel\");
+
+T_PTROBJ_0001
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlIndex\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlIndex\");
+
+T_PTROBJ_0002
+    if (sv_derived_from($arg, \"Qt::Core::QSysInfo\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QSysInfo\");
+
+T_PTROBJ_0003
+    if (sv_derived_from($arg, \"Qt::Core::QFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QFlag\");
+
+T_PTROBJ_0004
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlTableModel\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlTableModel\");
+
+T_PTROBJ_0005
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlError\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlError\");
+
+T_PTROBJ_0006
+    if (sv_derived_from($arg, \"Qt::Core::QIncompatibleFlag\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QIncompatibleFlag\");
+
+T_PTROBJ_0007
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlDriverCreatorBase\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlDriverCreatorBase\");
+
+T_PTROBJ_0008
+    if (sv_derived_from($arg, \"Qt::Core::QInternal\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QInternal\");
+
+T_PTROBJ_0009
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlDriverFactoryInterface\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlDriverFactoryInterface\");
+
+T_PTROBJ_0010
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlRelation\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlRelation\");
+
+T_PTROBJ_0011
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlRecord\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlRecord\");
+
+T_PTROBJ_0012
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlDriver\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlDriver\");
+
+T_PTROBJ_0013
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlQuery\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlQuery\");
+
+T_PTROBJ_0014
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlRelationalTableModel\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlRelationalTableModel\");
+
+T_PTROBJ_0015
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlResult\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlResult\");
+
+T_PTROBJ_0016
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlDatabase\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlDatabase\");
+
+T_PTROBJ_0017
+    if (sv_derived_from($arg, \"Qt::Sql::QSqlField\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::QSqlField\");
+
+T_PTROBJ_0018
+    if (sv_derived_from($arg, \"Qt::Core::QBool\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
+
+
+################################################################
+OUTPUT
+T_PTROBJ_0000
+    sv_setref_pv($arg, \"Qt::Sql::QSqlQueryModel\", (void *)$var);
+
+T_PTROBJ_0001
+    sv_setref_pv($arg, \"Qt::Sql::QSqlIndex\", (void *)$var);
+
+T_PTROBJ_0002
+    sv_setref_pv($arg, \"Qt::Core::QSysInfo\", (void *)$var);
+
+T_PTROBJ_0003
+    sv_setref_pv($arg, \"Qt::Core::QFlag\", (void *)$var);
+
+T_PTROBJ_0004
+    sv_setref_pv($arg, \"Qt::Sql::QSqlTableModel\", (void *)$var);
+
+T_PTROBJ_0005
+    sv_setref_pv($arg, \"Qt::Sql::QSqlError\", (void *)$var);
+
+T_PTROBJ_0006
+    sv_setref_pv($arg, \"Qt::Core::QIncompatibleFlag\", (void *)$var);
+
+T_PTROBJ_0007
+    sv_setref_pv($arg, \"Qt::Sql::QSqlDriverCreatorBase\", (void *)$var);
+
+T_PTROBJ_0008
+    sv_setref_pv($arg, \"Qt::Core::QInternal\", (void *)$var);
+
+T_PTROBJ_0009
+    sv_setref_pv($arg, \"Qt::Sql::QSqlDriverFactoryInterface\", (void *)$var);
+
+T_PTROBJ_0010
+    sv_setref_pv($arg, \"Qt::Sql::QSqlRelation\", (void *)$var);
+
+T_PTROBJ_0011
+    sv_setref_pv($arg, \"Qt::Sql::QSqlRecord\", (void *)$var);
+
+T_PTROBJ_0012
+    sv_setref_pv($arg, \"Qt::Sql::QSqlDriver\", (void *)$var);
+
+T_PTROBJ_0013
+    sv_setref_pv($arg, \"Qt::Sql::QSqlQuery\", (void *)$var);
+
+T_PTROBJ_0014
+    sv_setref_pv($arg, \"Qt::Sql::QSqlRelationalTableModel\", (void *)$var);
+
+T_PTROBJ_0015
+    sv_setref_pv($arg, \"Qt::Sql::QSqlResult\", (void *)$var);
+
+T_PTROBJ_0016
+    sv_setref_pv($arg, \"Qt::Sql::QSqlDatabase\", (void *)$var);
+
+T_PTROBJ_0017
+    sv_setref_pv($arg, \"Qt::Sql::QSqlField\", (void *)$var);
+
+T_PTROBJ_0018
+    sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
