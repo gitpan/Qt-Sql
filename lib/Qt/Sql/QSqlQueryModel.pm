@@ -7,11 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QAbstractTableModel/;
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,63 +24,70 @@ Qt::Sql::QSqlQueryModel
 
 =over
 
-=item    QSqlQueryModel(QObject * parent = 0)
+=item   QSqlQueryModel()
 
-=item    QSqlQueryModel(QObject * parent)
+=item   QSqlQueryModel( = 0)
 
-=item    ~QSqlQueryModel()
+=item   ~QSqlQueryModel()
 
-=item   bool canFetchMore(const QModelIndex & parent = QModelIndex())
+=item  bool canFetchMore()
 
-=item   bool canFetchMore(const QModelIndex & parent)
+=item  bool canFetchMore( = QModelIndex())
 
-=item   void clear()
+=item  void clear()
 
-=item   int columnCount(const QModelIndex & parent = QModelIndex())
+=item  int columnCount()
 
-=item   int columnCount(const QModelIndex & parent)
+=item  int columnCount( = QModelIndex())
 
-=item   QVariant data(const QModelIndex & item, int role = Qt::DisplayRole)
+=item  QVariant data(, )
 
-=item   QVariant data(const QModelIndex & item, int role)
+=item  QVariant data(,  = Qt::DisplayRole)
 
-=item   void fetchMore(const QModelIndex & parent = QModelIndex())
+=item  void fetchMore()
 
-=item   void fetchMore(const QModelIndex & parent)
+=item  void fetchMore( = QModelIndex())
 
-=item   QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
+=item  QVariant headerData(, , )
 
-=item   QVariant headerData(int section, Qt::Orientation orientation, int role)
+=item  QVariant headerData(, ,  = Qt::DisplayRole)
 
-=item   bool insertColumns(int column, int count, const QModelIndex & parent = QModelIndex())
+=item  bool insertColumns(, , )
 
-=item   bool insertColumns(int column, int count, const QModelIndex & parent)
+=item  bool insertColumns(, ,  = QModelIndex())
 
-=item   QSqlError lastError()
+=item  QSqlError lastError()
 
-=item   QSqlQuery query()
+=item  QSqlQuery query()
 
-=item   QSqlRecord record()
+=item  QSqlRecord record()
 
-=item   QSqlRecord record(int row)
+=item  QSqlRecord record()
 
-=item   bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
+=item  bool removeColumns(, , )
 
-=item   bool removeColumns(int column, int count, const QModelIndex & parent)
+=item  bool removeColumns(, ,  = QModelIndex())
 
-=item   int rowCount(const QModelIndex & parent = QModelIndex())
+=item  int rowCount()
 
-=item   int rowCount(const QModelIndex & parent)
+=item  int rowCount( = QModelIndex())
 
-=item   bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role = Qt::EditRole)
+=item  bool setHeaderData(, , , )
 
-=item   bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role)
+=item  bool setHeaderData(, , ,  = Qt::EditRole)
 
-=item   void setQuery(const QSqlQuery & query)
+=item  void setQuery()
 
-=item   void setQuery(const QString & query, const QSqlDatabase & db = QSqlDatabase())
+=item  void setQuery(, )
 
-=item   void setQuery(const QString & query, const QSqlDatabase & db)
+=item  void setQuery(,  = QSqlDatabase())
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

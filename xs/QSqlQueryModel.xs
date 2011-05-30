@@ -18,42 +18,50 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlQueryModel(QObject * parent = 0)
-##  QSqlQueryModel(QObject * parent)
+##  QSqlQueryModel()
+##  QSqlQueryModel( = 0)
   void
 QSqlQueryModel::new(...)
 PREINIT:
 QSqlQueryModel *ret;
-QObject * arg00 = 0;
-QObject * arg10;
+QObject * arg00;
+QObject * arg10 = 0;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        ret = new QSqlQueryModel(arg00);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "Qt::Sql::QSqlQueryModel", (void *)ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_derived_from(ST(1), "")) {
-        arg10 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     ret = new QSqlQueryModel(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlQueryModel", (void *)ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if ((sv_derived_from(ST(1), "Qt::Core::QObject") || ST(1) == &PL_sv_undef)) {
+      if (sv_derived_from(ST(1), "Qt::Core::QObject")) {
+        arg00 = reinterpret_cast<QObject *>(SvIV((SV*)SvRV(ST(1))));
+    }
+    else if (ST(1) == &PL_sv_undef) {
+        arg00 = 0;
+    }
+    else
+        Perl_croak(aTHX_ "arg00 is not of type Qt::Core::QObject");
+    ret = new QSqlQueryModel(arg00);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Sql::QSqlQueryModel", (void *)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ##  ~QSqlQueryModel()
@@ -63,42 +71,43 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## bool canFetchMore(const QModelIndex & parent = QModelIndex())
-## bool canFetchMore(const QModelIndex & parent)
+## bool canFetchMore()
+## bool canFetchMore( = QModelIndex())
 void
 QSqlQueryModel::canFetchMore(...)
 PREINIT:
-const QModelIndex & arg00_ = QModelIndex();
-QModelIndex * arg00 = const_cast<QModelIndex *>(&arg00_);
-QModelIndex * arg10;
+QModelIndex * arg00;
+const QModelIndex & arg10_ = QModelIndex();
+QModelIndex * arg10 = const_cast<QModelIndex *>(&arg10_);
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        bool ret = THIS->canFetchMore(*arg00);
-    ST(0) = sv_newmortal();
-    ST(0) = boolSV(ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     bool ret = THIS->canFetchMore(*arg10);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex")) {
+      arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
+    bool ret = THIS->canFetchMore(*arg00);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## void clear()
@@ -106,229 +115,222 @@ void
 QSqlQueryModel::clear(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     (void)THIS->clear();
     XSRETURN(0);
+    }
 
-## int columnCount(const QModelIndex & parent = QModelIndex())
-## int columnCount(const QModelIndex & parent)
+## int columnCount()
+## int columnCount( = QModelIndex())
 void
 QSqlQueryModel::columnCount(...)
 PREINIT:
-const QModelIndex & arg00_ = QModelIndex();
-QModelIndex * arg00 = const_cast<QModelIndex *>(&arg00_);
-QModelIndex * arg10;
+QModelIndex * arg00;
+const QModelIndex & arg10_ = QModelIndex();
+QModelIndex * arg10 = const_cast<QModelIndex *>(&arg10_);
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        int ret = THIS->columnCount(*arg00);
-    ST(0) = sv_newmortal();
-    sv_setiv(ST(0), (IV)ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     int ret = THIS->columnCount(*arg10);
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex")) {
+      arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
+    int ret = THIS->columnCount(*arg00);
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## QVariant data(const QModelIndex & item, int role = Qt::DisplayRole)
-## QVariant data(const QModelIndex & item, int role)
+## QVariant data(, )
+## QVariant data(,  = Qt::DisplayRole)
 void
 QSqlQueryModel::data(...)
 PREINIT:
 QModelIndex * arg00;
-int arg01 = Qt::DisplayRole;
+int arg01;
 QModelIndex * arg10;
-int arg11;
+int arg11 = Qt::DisplayRole;
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
-        if (sv_isa(ST(1), "")) {
-        arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type ");
-    QVariant ret = THIS->data(*arg00, arg01);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
-    XSRETURN(1);
-        break;
-      }
-    case 3:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
-    arg11 = (int)SvIV(ST(2));
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex")) {
+      arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
     QVariant ret = THIS->data(*arg10, arg11);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 3:
       {
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex") && SvIOK(ST(2))) {
+      arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
+      arg01 = (int)SvIV(ST(2));
+    QVariant ret = THIS->data(*arg00, arg01);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## void fetchMore(const QModelIndex & parent = QModelIndex())
-## void fetchMore(const QModelIndex & parent)
+## void fetchMore()
+## void fetchMore( = QModelIndex())
 void
 QSqlQueryModel::fetchMore(...)
 PREINIT:
-const QModelIndex & arg00_ = QModelIndex();
-QModelIndex * arg00 = const_cast<QModelIndex *>(&arg00_);
-QModelIndex * arg10;
+QModelIndex * arg00;
+const QModelIndex & arg10_ = QModelIndex();
+QModelIndex * arg10 = const_cast<QModelIndex *>(&arg10_);
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        (void)THIS->fetchMore(*arg00);
-    XSRETURN(0);
-        break;
-      }
-    case 2:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     (void)THIS->fetchMore(*arg10);
     XSRETURN(0);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex")) {
+      arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
+    (void)THIS->fetchMore(*arg00);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
-## QVariant headerData(int section, Qt::Orientation orientation, int role)
+## QVariant headerData(, , )
+## QVariant headerData(, ,  = Qt::DisplayRole)
 void
 QSqlQueryModel::headerData(...)
 PREINIT:
 int arg00;
 Qt::Orientation arg01;
-int arg02 = Qt::DisplayRole;
+int arg02;
 int arg10;
 Qt::Orientation arg11;
-int arg12;
+int arg12 = Qt::DisplayRole;
 PPCODE:
     switch(items) {
-    case 3:
+      case 3:
       {
-        arg00 = (int)SvIV(ST(1));
-    switch(SvIV(ST(2))) {
-    case 0:
-      arg01 = Qt::Horizontal;
-      break;
-    case 1:
-      arg01 = Qt::Vertical;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type Qt::Orientation passed in");
-    }
-    QVariant ret = THIS->headerData(arg00, arg01, arg02);
-    ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
-    XSRETURN(1);
-        break;
-      }
-    case 4:
-      {
-        arg10 = (int)SvIV(ST(1));
-    switch(SvIV(ST(2))) {
-    case 0:
-      arg11 = Qt::Horizontal;
-      break;
-    case 1:
-      arg11 = Qt::Vertical;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type Qt::Orientation passed in");
-    }
-    arg12 = (int)SvIV(ST(3));
+        if (SvIOK(ST(1)) && SvIOK(ST(2))) {
+      arg10 = (int)SvIV(ST(1));
+      arg11 = (Qt::Orientation)SvIV(ST(2));
     QVariant ret = THIS->headerData(arg10, arg11, arg12);
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 4:
       {
+        if (SvIOK(ST(1)) && SvIOK(ST(2)) && SvIOK(ST(3))) {
+      arg00 = (int)SvIV(ST(1));
+      arg01 = (Qt::Orientation)SvIV(ST(2));
+      arg02 = (int)SvIV(ST(3));
+    QVariant ret = THIS->headerData(arg00, arg01, arg02);
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## bool insertColumns(int column, int count, const QModelIndex & parent = QModelIndex())
-## bool insertColumns(int column, int count, const QModelIndex & parent)
+## bool insertColumns(, , )
+## bool insertColumns(, ,  = QModelIndex())
 void
 QSqlQueryModel::insertColumns(...)
 PREINIT:
 int arg00;
 int arg01;
-const QModelIndex & arg02_ = QModelIndex();
-QModelIndex * arg02 = const_cast<QModelIndex *>(&arg02_);
+QModelIndex * arg02;
 int arg10;
 int arg11;
-QModelIndex * arg12;
+const QModelIndex & arg12_ = QModelIndex();
+QModelIndex * arg12 = const_cast<QModelIndex *>(&arg12_);
 PPCODE:
     switch(items) {
-    case 3:
+      case 3:
       {
-        arg00 = (int)SvIV(ST(1));
-    arg01 = (int)SvIV(ST(2));
-    bool ret = THIS->insertColumns(arg00, arg01, *arg02);
-    ST(0) = sv_newmortal();
-    ST(0) = boolSV(ret);
-    XSRETURN(1);
-        break;
-      }
-    case 4:
-      {
-        arg10 = (int)SvIV(ST(1));
-    arg11 = (int)SvIV(ST(2));
-    if (sv_isa(ST(3), "")) {
-        arg12 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(3))));
-    }
-    else
-        Perl_croak(aTHX_ "arg12 is not of type ");
+        if (SvIOK(ST(1)) && SvIOK(ST(2))) {
+      arg10 = (int)SvIV(ST(1));
+      arg11 = (int)SvIV(ST(2));
     bool ret = THIS->insertColumns(arg10, arg11, *arg12);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 4:
       {
+        if (SvIOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QModelIndex")) {
+      arg00 = (int)SvIV(ST(1));
+      arg01 = (int)SvIV(ST(2));
+      arg02 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(3))));
+    bool ret = THIS->insertColumns(arg00, arg01, *arg02);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
 ## QSqlError lastError()
@@ -336,252 +338,245 @@ void
 QSqlQueryModel::lastError(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSqlError ret = THIS->lastError();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlError", (void *)new QSqlError(ret));
     XSRETURN(1);
+    }
 
 ## QSqlQuery query()
 void
 QSqlQueryModel::query(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSqlQuery ret = THIS->query();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlQuery", (void *)new QSqlQuery(ret));
     XSRETURN(1);
+    }
 
 ## QSqlRecord record()
-## QSqlRecord record(int row)
+## QSqlRecord record()
 void
 QSqlQueryModel::record(...)
 PREINIT:
 int arg10;
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        QSqlRecord ret = THIS->record();
+        if (1) {
+      
+    QSqlRecord ret = THIS->record();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlRecord", (void *)new QSqlRecord(ret));
     XSRETURN(1);
+    }
         break;
       }
-    case 2:
+      case 2:
       {
-        arg10 = (int)SvIV(ST(1));
+        if (SvIOK(ST(1))) {
+      arg10 = (int)SvIV(ST(1));
     QSqlRecord ret = THIS->record(arg10);
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlRecord", (void *)new QSqlRecord(ret));
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
-      {
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
-## bool removeColumns(int column, int count, const QModelIndex & parent)
+## bool removeColumns(, , )
+## bool removeColumns(, ,  = QModelIndex())
 void
 QSqlQueryModel::removeColumns(...)
 PREINIT:
 int arg00;
 int arg01;
-const QModelIndex & arg02_ = QModelIndex();
-QModelIndex * arg02 = const_cast<QModelIndex *>(&arg02_);
+QModelIndex * arg02;
 int arg10;
 int arg11;
-QModelIndex * arg12;
+const QModelIndex & arg12_ = QModelIndex();
+QModelIndex * arg12 = const_cast<QModelIndex *>(&arg12_);
 PPCODE:
     switch(items) {
-    case 3:
+      case 3:
       {
-        arg00 = (int)SvIV(ST(1));
-    arg01 = (int)SvIV(ST(2));
-    bool ret = THIS->removeColumns(arg00, arg01, *arg02);
-    ST(0) = sv_newmortal();
-    ST(0) = boolSV(ret);
-    XSRETURN(1);
-        break;
-      }
-    case 4:
-      {
-        arg10 = (int)SvIV(ST(1));
-    arg11 = (int)SvIV(ST(2));
-    if (sv_isa(ST(3), "")) {
-        arg12 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(3))));
-    }
-    else
-        Perl_croak(aTHX_ "arg12 is not of type ");
+        if (SvIOK(ST(1)) && SvIOK(ST(2))) {
+      arg10 = (int)SvIV(ST(1));
+      arg11 = (int)SvIV(ST(2));
     bool ret = THIS->removeColumns(arg10, arg11, *arg12);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 4:
       {
+        if (SvIOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QModelIndex")) {
+      arg00 = (int)SvIV(ST(1));
+      arg01 = (int)SvIV(ST(2));
+      arg02 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(3))));
+    bool ret = THIS->removeColumns(arg00, arg01, *arg02);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## int rowCount(const QModelIndex & parent = QModelIndex())
-## int rowCount(const QModelIndex & parent)
+## int rowCount()
+## int rowCount( = QModelIndex())
 void
 QSqlQueryModel::rowCount(...)
 PREINIT:
-const QModelIndex & arg00_ = QModelIndex();
-QModelIndex * arg00 = const_cast<QModelIndex *>(&arg00_);
-QModelIndex * arg10;
+QModelIndex * arg00;
+const QModelIndex & arg10_ = QModelIndex();
+QModelIndex * arg10 = const_cast<QModelIndex *>(&arg10_);
 PPCODE:
     switch(items) {
-    case 1:
+      case 1:
       {
-        int ret = THIS->rowCount(*arg00);
-    ST(0) = sv_newmortal();
-    sv_setiv(ST(0), (IV)ret);
-    XSRETURN(1);
-        break;
-      }
-    case 2:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg10 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg10 is not of type ");
+        if (1) {
+      
     int ret = THIS->rowCount(*arg10);
     ST(0) = sv_newmortal();
     sv_setiv(ST(0), (IV)ret);
     XSRETURN(1);
+    }
         break;
       }
-    default:
+      case 2:
       {
+        if (sv_isa(ST(1), "Qt::Core::QModelIndex")) {
+      arg00 = reinterpret_cast<QModelIndex *>(SvIV((SV*)SvRV(ST(1))));
+    int ret = THIS->rowCount(*arg00);
+    ST(0) = sv_newmortal();
+    sv_setiv(ST(0), (IV)ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role = Qt::EditRole)
-## bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role)
+## bool setHeaderData(, , , )
+## bool setHeaderData(, , ,  = Qt::EditRole)
 void
 QSqlQueryModel::setHeaderData(...)
 PREINIT:
 int arg00;
 Qt::Orientation arg01;
 QVariant * arg02;
-int arg03 = Qt::EditRole;
+int arg03;
 int arg10;
 Qt::Orientation arg11;
 QVariant * arg12;
-int arg13;
+int arg13 = Qt::EditRole;
 PPCODE:
     switch(items) {
-    case 4:
+      case 4:
       {
-        arg00 = (int)SvIV(ST(1));
-    switch(SvIV(ST(2))) {
-    case 0:
-      arg01 = Qt::Horizontal;
-      break;
-    case 1:
-      arg01 = Qt::Vertical;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type Qt::Orientation passed in");
-    }
-    if (sv_isa(ST(3), "")) {
-        arg02 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(3))));
-    }
-    else
-        Perl_croak(aTHX_ "arg02 is not of type ");
-    bool ret = THIS->setHeaderData(arg00, arg01, *arg02, arg03);
-    ST(0) = sv_newmortal();
-    ST(0) = boolSV(ret);
-    XSRETURN(1);
-        break;
-      }
-    case 5:
-      {
-        arg10 = (int)SvIV(ST(1));
-    switch(SvIV(ST(2))) {
-    case 0:
-      arg11 = Qt::Horizontal;
-      break;
-    case 1:
-      arg11 = Qt::Vertical;
-      break;
-    default:
-      Perl_croak(aTHX_ "wrong enum value for type Qt::Orientation passed in");
-    }
-    if (sv_isa(ST(3), "")) {
-        arg12 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(3))));
-    }
-    else
-        Perl_croak(aTHX_ "arg12 is not of type ");
-    arg13 = (int)SvIV(ST(4));
+        if (SvIOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QVariant")) {
+      arg10 = (int)SvIV(ST(1));
+      arg11 = (Qt::Orientation)SvIV(ST(2));
+      arg12 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(3))));
     bool ret = THIS->setHeaderData(arg10, arg11, *arg12, arg13);
     ST(0) = sv_newmortal();
     ST(0) = boolSV(ret);
     XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 5:
       {
+        if (SvIOK(ST(1)) && SvIOK(ST(2)) && sv_isa(ST(3), "Qt::Core::QVariant") && SvIOK(ST(4))) {
+      arg00 = (int)SvIV(ST(1));
+      arg01 = (Qt::Orientation)SvIV(ST(2));
+      arg02 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(3))));
+      arg03 = (int)SvIV(ST(4));
+    bool ret = THIS->setHeaderData(arg00, arg01, *arg02, arg03);
+    ST(0) = sv_newmortal();
+    ST(0) = boolSV(ret);
+    XSRETURN(1);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }
 
-## void setQuery(const QSqlQuery & query)
-## void setQuery(const QString & query, const QSqlDatabase & db = QSqlDatabase())
-## void setQuery(const QString & query, const QSqlDatabase & db)
+## void setQuery()
+## void setQuery(, )
+## void setQuery(,  = QSqlDatabase())
 void
 QSqlQueryModel::setQuery(...)
 PREINIT:
 QSqlQuery * arg00;
 QString * arg10;
-const QSqlDatabase & arg11_ = QSqlDatabase();
-QSqlDatabase * arg11 = const_cast<QSqlDatabase *>(&arg11_);
+QSqlDatabase * arg11;
 QString * arg20;
-QSqlDatabase * arg21;
+const QSqlDatabase & arg21_ = QSqlDatabase();
+QSqlDatabase * arg21 = const_cast<QSqlDatabase *>(&arg21_);
 PPCODE:
     switch(items) {
-    case 2:
+      case 2:
       {
         if (sv_isa(ST(1), "Qt::Sql::QSqlQuery")) {
-        arg00 = reinterpret_cast<QSqlQuery *>(SvIV((SV*)SvRV(ST(1))));
-    }
-    else
-        Perl_croak(aTHX_ "arg00 is not of type Qt::Sql::QSqlQuery");
+      arg00 = reinterpret_cast<QSqlQuery *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setQuery(*arg00);
     XSRETURN(0);
-        break;
-      }
-    case 3:
-      {
-        if (sv_isa(ST(1), "")) {
-        arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
     }
-    else
-        Perl_croak(aTHX_ "arg20 is not of type ");
-    if (sv_isa(ST(2), "Qt::Sql::QSqlDatabase")) {
-        arg21 = reinterpret_cast<QSqlDatabase *>(SvIV((SV*)SvRV(ST(2))));
-    }
-    else
-        Perl_croak(aTHX_ "arg21 is not of type Qt::Sql::QSqlDatabase");
+        else if (sv_isa(ST(1), "Qt::Core::QString")) {
+      arg20 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
     (void)THIS->setQuery(*arg20, *arg21);
     XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
       }
-    default:
+      case 3:
       {
+        if (sv_isa(ST(1), "Qt::Core::QString") && sv_isa(ST(2), "Qt::Sql::QSqlDatabase")) {
+      arg10 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
+      arg11 = reinterpret_cast<QSqlDatabase *>(SvIV((SV*)SvRV(ST(2))));
+    (void)THIS->setQuery(*arg10, *arg11);
+    XSRETURN(0);
+    }
+	else
+            Perl_croak(aTHX_ "wrong number/type of arguments passed in");
+        break;
+      }
+      default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
-      }
     }

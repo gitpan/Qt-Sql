@@ -1,30 +1,45 @@
-package Qt::Sql::QSqlDriverFactoryInterface;
+package Qt::Sql::QSqlDriverPlugin;
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
-# classname: QSqlDriverFactoryInterface
+# classname: QSqlDriverPlugin
 # file     : QtSql/qsqldriverplugin.h
 
 use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Core::QObject Qt::Sql::QSqlDriverFactoryInterface/;
 
 
 # FIXME: operator overload
-
 
 
 1;
 
 =head1 NAME
 
-Qt::Sql::QSqlDriverFactoryInterface
+Qt::Sql::QSqlDriverPlugin
 
 =head1 PUBLIC METHODS
 
 =over
 
-=item   QSqlDriver * create(const QString & name)
+=item   QSqlDriverPlugin()
+
+=item   QSqlDriverPlugin( = 0)
+
+=item   ~QSqlDriverPlugin()
+
+=item  QSqlDriver * create()
+
+=item  QStringList keys()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

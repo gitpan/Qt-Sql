@@ -32,7 +32,7 @@ PROTOTYPES: DISABLE
 INCLUDE:		xs/QSqlDatabase.xs
 INCLUDE:		xs/QSqlDriver.xs
 INCLUDE:		xs/QSqlDriverCreatorBase.xs
-INCLUDE:		xs/QSqlDriverFactoryInterface.xs
+INCLUDE:		xs/QSqlDriverPlugin.xs
 INCLUDE:		xs/QSqlError.xs
 INCLUDE:		xs/QSqlField.xs
 INCLUDE:		xs/QSqlIndex.xs

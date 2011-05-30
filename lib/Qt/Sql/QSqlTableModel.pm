@@ -7,17 +7,11 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
-our $ISA     = qw/QSqlQueryModel/;
+our $VERSION = '0.01_02';
+our $ISA     = qw/Qt::Sql::QSqlQueryModel/;
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub OnFieldChange() { 0 }
-sub OnRowChange() { 1 }
-sub OnManualSubmit() { 2 }
 
 
 1;
@@ -30,85 +24,98 @@ Qt::Sql::QSqlTableModel
 
 =over
 
-=item    QSqlTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
+=item   QSqlTableModel(, )
 
-=item    QSqlTableModel(QObject * parent, QSqlDatabase db)
+=item   QSqlTableModel(,  = QSqlDatabase())
 
-=item    QSqlTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase())
+=item   QSqlTableModel( = 0,  = QSqlDatabase())
 
-=item    QSqlTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
+=item   ~QSqlTableModel()
 
-=item    ~QSqlTableModel()
+=item  void clear()
 
-=item   void clear()
+=item  QVariant data(, )
 
-=item   QVariant data(const QModelIndex & idx, int role = Qt::DisplayRole)
+=item  QVariant data(,  = Qt::DisplayRole)
 
-=item   QVariant data(const QModelIndex & idx, int role)
+=item  QSqlDatabase database()
 
-=item   QSqlDatabase database()
+=item  QSqlTableModel::EditStrategy editStrategy()
 
-=item   QSqlTableModel::EditStrategy editStrategy()
+=item  int fieldIndex()
 
-=item   int fieldIndex(const QString & fieldName)
+=item  QString filter()
 
-=item   QString filter()
+=item  QFlags<Qt::ItemFlag> flags()
 
-=item   QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
+=item  QVariant headerData(, , )
 
-=item   QVariant headerData(int section, Qt::Orientation orientation, int role)
+=item  QVariant headerData(, ,  = Qt::DisplayRole)
 
-=item   bool insertRecord(int row, const QSqlRecord & record)
+=item  bool insertRecord(, )
 
-=item   bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex())
+=item  bool insertRows(, , )
 
-=item   bool insertRows(int row, int count, const QModelIndex & parent)
+=item  bool insertRows(, ,  = QModelIndex())
 
-=item   bool isDirty(const QModelIndex & index)
+=item  bool isDirty()
 
-=item   QSqlIndex primaryKey()
+=item  QSqlIndex primaryKey()
 
-=item   bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
+=item  bool removeColumns(, , )
 
-=item   bool removeColumns(int column, int count, const QModelIndex & parent)
+=item  bool removeColumns(, ,  = QModelIndex())
 
-=item   bool removeRows(int row, int count, const QModelIndex & parent = QModelIndex())
+=item  bool removeRows(, , )
 
-=item   bool removeRows(int row, int count, const QModelIndex & parent)
+=item  bool removeRows(, ,  = QModelIndex())
 
-=item   void revert()
+=item  void revert()
 
-=item   void revertAll()
+=item  void revertAll()
 
-=item   void revertRow(int row)
+=item  void revertRow()
 
-=item   int rowCount(const QModelIndex & parent = QModelIndex())
+=item  int rowCount()
 
-=item   int rowCount(const QModelIndex & parent)
+=item  int rowCount( = QModelIndex())
 
-=item   bool select()
+=item  bool select()
 
-=item   bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole)
+=item  bool setData(, , )
 
-=item   bool setData(const QModelIndex & index, const QVariant & value, int role)
+=item  bool setData(, ,  = Qt::EditRole)
 
-=item   void setEditStrategy(QSqlTableModel::EditStrategy strategy)
+=item  void setEditStrategy()
 
-=item   void setFilter(const QString & filter)
+=item  void setFilter()
 
-=item   bool setRecord(int row, const QSqlRecord & record)
+=item  bool setRecord(, )
 
-=item   void setSort(int column, Qt::SortOrder order)
+=item  void setSort(, )
 
-=item   void setTable(const QString & tableName)
+=item  void setTable()
 
-=item   void sort(int column, Qt::SortOrder order)
+=item  void sort(, )
 
-=item   bool submit()
+=item  bool submit()
 
-=item   bool submitAll()
+=item  bool submitAll()
 
-=item   QString tableName()
+=item  QString tableName()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item OnFieldChange
+
+=item OnRowChange
+
+=item OnManualSubmit
 
 
 =back

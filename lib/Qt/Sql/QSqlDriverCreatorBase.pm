@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,9 +23,16 @@ Qt::Sql::QSqlDriverCreatorBase
 
 =over
 
-=item    ~QSqlDriverCreatorBase()
+=item   ~QSqlDriverCreatorBase()
 
-=item   QSqlDriver * createObject()
+=item  QSqlDriver * createObject()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

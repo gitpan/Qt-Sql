@@ -7,15 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub ValuesAsRows() { 0 }
-sub ValuesAsColumns() { 1 }
 
 
 1;
@@ -28,93 +23,114 @@ Qt::Sql::QSqlQuery
 
 =over
 
-=item    QSqlQuery(QSqlResult * r)
+=item   QSqlQuery()
 
-=item    QSqlQuery(QSqlDatabase db)
+=item   QSqlQuery()
 
-=item    QSqlQuery(const QSqlQuery & other)
+=item   QSqlQuery()
 
-=item    QSqlQuery(const QString & query, QSqlDatabase db = QSqlDatabase())
+=item   QSqlQuery(, )
 
-=item    QSqlQuery(const QString & query, QSqlDatabase db)
+=item   QSqlQuery(,  = QSqlDatabase())
 
-=item    QSqlQuery(const QString & query = QString(), QSqlDatabase db = QSqlDatabase())
+=item   QSqlQuery( = QString(),  = QSqlDatabase())
 
-=item    QSqlQuery(const QString & query, QSqlDatabase db = QSqlDatabase())
+=item   ~QSqlQuery()
 
-=item    ~QSqlQuery()
+=item  void addBindValue(, )
 
-=item   int at()
+=item  void addBindValue(,  = QSql::In)
 
-=item   QVariant boundValue(const QString & placeholder)
+=item  int at()
 
-=item   QVariant boundValue(int pos)
+=item  void bindValue(, , )
 
-=item   void clear()
+=item  void bindValue(, ,  = QSql::In)
 
-=item   const QSqlDriver * driver()
+=item  void bindValue(, , )
 
-=item   bool exec()
+=item  void bindValue(, ,  = QSql::In)
 
-=item   bool exec(const QString & query)
+=item  QVariant boundValue()
 
-=item   bool execBatch(QSqlQuery::BatchExecutionMode mode = QSqlQuery::ValuesAsRows)
+=item  QVariant boundValue()
 
-=item   bool execBatch(QSqlQuery::BatchExecutionMode mode)
+=item  void clear()
 
-=item   QString executedQuery()
+=item  const QSqlDriver * driver()
 
-=item   void finish()
+=item  bool exec()
 
-=item   bool first()
+=item  bool exec()
 
-=item   bool isActive()
+=item  bool execBatch()
 
-=item   bool isForwardOnly()
+=item  bool execBatch( = QSqlQuery::ValuesAsRows)
 
-=item   bool isNull(int field)
+=item  QString executedQuery()
 
-=item   bool isSelect()
+=item  void finish()
 
-=item   bool isValid()
+=item  bool first()
 
-=item   bool last()
+=item  bool isActive()
 
-=item   QSqlError lastError()
+=item  bool isForwardOnly()
 
-=item   QVariant lastInsertId()
+=item  bool isNull()
 
-=item   QString lastQuery()
+=item  bool isSelect()
 
-=item   bool next()
+=item  bool isValid()
 
-=item   bool nextResult()
+=item  bool last()
 
-=item   int numRowsAffected()
+=item  QSqlError lastError()
 
-=item   QSql::NumericalPrecisionPolicy numericalPrecisionPolicy()
+=item  QVariant lastInsertId()
 
-=item   QSqlQuery & operator=(const QSqlQuery & other)
+=item  QString lastQuery()
 
-=item   bool prepare(const QString & query)
+=item  bool next()
 
-=item   bool previous()
+=item  bool nextResult()
 
-=item   QSqlRecord record()
+=item  int numRowsAffected()
 
-=item   const QSqlResult * result()
+=item  QSql::NumericalPrecisionPolicy numericalPrecisionPolicy()
 
-=item   bool seek(int i, bool relative = false)
+=item  QSqlQuery & operator=()
 
-=item   bool seek(int i, bool relative)
+=item  bool prepare()
 
-=item   void setForwardOnly(bool forward)
+=item  bool previous()
 
-=item   void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+=item  QSqlRecord record()
 
-=item   int size()
+=item  const QSqlResult * result()
 
-=item   QVariant value(int i)
+=item  bool seek(, )
+
+=item  bool seek(,  = false)
+
+=item  void setForwardOnly()
+
+=item  void setNumericalPrecisionPolicy()
+
+=item  int size()
+
+=item  QVariant value()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item ValuesAsRows
+
+=item ValuesAsColumns
 
 
 =back

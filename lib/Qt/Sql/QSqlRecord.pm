@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,67 +23,74 @@ Qt::Sql::QSqlRecord
 
 =over
 
-=item    QSqlRecord()
+=item   QSqlRecord()
 
-=item    QSqlRecord(const QSqlRecord & other)
+=item   QSqlRecord()
 
-=item    ~QSqlRecord()
+=item   ~QSqlRecord()
 
-=item   void append(const QSqlField & field)
+=item  void append()
 
-=item   void clear()
+=item  void clear()
 
-=item   void clearValues()
+=item  void clearValues()
 
-=item   bool contains(const QString & name)
+=item  bool contains()
 
-=item   int count()
+=item  int count()
 
-=item   QSqlField field(int i)
+=item  QSqlField field()
 
-=item   QSqlField field(const QString & name)
+=item  QSqlField field()
 
-=item   QString fieldName(int i)
+=item  QString fieldName()
 
-=item   int indexOf(const QString & name)
+=item  int indexOf()
 
-=item   void insert(int pos, const QSqlField & field)
+=item  void insert(, )
 
-=item   bool isEmpty()
+=item  bool isEmpty()
 
-=item   bool isGenerated(int i)
+=item  bool isGenerated()
 
-=item   bool isGenerated(const QString & name)
+=item  bool isGenerated()
 
-=item   bool isNull(int i)
+=item  bool isNull()
 
-=item   bool isNull(const QString & name)
+=item  bool isNull()
 
-=item   bool operator!=(const QSqlRecord & other)
+=item  bool operator!=()
 
-=item   QSqlRecord & operator=(const QSqlRecord & other)
+=item  QSqlRecord & operator=()
 
-=item   bool operator==(const QSqlRecord & other)
+=item  bool operator==()
 
-=item   void remove(int pos)
+=item  void remove()
 
-=item   void replace(int pos, const QSqlField & field)
+=item  void replace(, )
 
-=item   void setGenerated(const QString & name, bool generated)
+=item  void setGenerated(, )
 
-=item   void setGenerated(int i, bool generated)
+=item  void setGenerated(, )
 
-=item   void setNull(int i)
+=item  void setNull()
 
-=item   void setNull(const QString & name)
+=item  void setNull()
 
-=item   void setValue(int i, const QVariant & val)
+=item  void setValue(, )
 
-=item   void setValue(const QString & name, const QVariant & val)
+=item  void setValue(, )
 
-=item   QVariant value(int i)
+=item  QVariant value()
 
-=item   QVariant value(const QString & name)
+=item  QVariant value()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

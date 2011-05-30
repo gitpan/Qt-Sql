@@ -7,44 +7,12 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 require XSLoader;
 XSLoader::load('Qt::Sql', $VERSION);
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub QtDebugMsg() { 0 }
-sub QtWarningMsg() { 1 }
-sub QtCriticalMsg() { 2 }
-sub QtFatalMsg() { 3 }
-sub QtSystemMsg() { 4 }
-sub Q_COMPLEX_TYPE() { 0 }
-sub Q_PRIMITIVE_TYPE() { 1 }
-sub Q_STATIC_TYPE() { 2 }
-sub Q_MOVABLE_TYPE() { 3 }
-sub Q_DUMMY_TYPE() { 4 }
-sub LicensedCore() { 0 }
-sub LicensedGui() { 0 }
-sub LicensedNetwork() { 0 }
-sub LicensedOpenGL() { 0 }
-sub LicensedOpenVG() { 0 }
-sub LicensedSql() { 0 }
-sub LicensedMultimedia() { 0 }
-sub LicensedXml() { 0 }
-sub LicensedXmlPatterns() { 0 }
-sub LicensedHelp() { 0 }
-sub LicensedScript() { 0 }
-sub LicensedScriptTools() { 0 }
-sub LicensedQt3SupportLight() { 0 }
-sub LicensedQt3Support() { 0 }
-sub LicensedSvg() { 0 }
-sub LicensedDeclarative() { 0 }
-sub LicensedActiveQt() { 0 }
-sub LicensedTest() { 0 }
-sub LicensedDBus() { 0 }
 
 
 1;
@@ -56,6 +24,71 @@ Qt::Sql
 =head1 PUBLIC METHODS
 
 =over
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item QtDebugMsg
+
+=item QtWarningMsg
+
+=item QtCriticalMsg
+
+=item QtFatalMsg
+
+=item QtSystemMsg
+
+=item Q_COMPLEX_TYPE
+
+=item Q_PRIMITIVE_TYPE
+
+=item Q_STATIC_TYPE
+
+=item Q_MOVABLE_TYPE
+
+=item Q_DUMMY_TYPE
+
+=item LicensedCore
+
+=item LicensedGui
+
+=item LicensedNetwork
+
+=item LicensedOpenGL
+
+=item LicensedOpenVG
+
+=item LicensedSql
+
+=item LicensedMultimedia
+
+=item LicensedXml
+
+=item LicensedXmlPatterns
+
+=item LicensedHelp
+
+=item LicensedScript
+
+=item LicensedScriptTools
+
+=item LicensedQt3SupportLight
+
+=item LicensedQt3Support
+
+=item LicensedSvg
+
+=item LicensedDeclarative
+
+=item LicensedActiveQt
+
+=item LicensedTest
+
+=item LicensedDBus
 
 
 =back

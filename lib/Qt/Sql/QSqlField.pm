@@ -7,16 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub Unknown() { 0 }
-sub Optional() { 1 }
-sub Required() { 2 }
 
 
 1;
@@ -29,75 +23,86 @@ Qt::Sql::QSqlField
 
 =over
 
-=item    QSqlField(const QSqlField & other)
+=item   QSqlField()
 
-=item    QSqlField(const QString & fieldName, QVariant::Type type = QVariant::Invalid)
+=item   QSqlField(, )
 
-=item    QSqlField(const QString & fieldName, QVariant::Type type)
+=item   QSqlField(,  = QVariant::Invalid)
 
-=item    QSqlField(const QString & fieldName = QString(), QVariant::Type type = QVariant::Invalid)
+=item   QSqlField( = QString(),  = QVariant::Invalid)
 
-=item    QSqlField(const QString & fieldName, QVariant::Type type = QVariant::Invalid)
+=item   ~QSqlField()
 
-=item    ~QSqlField()
+=item  void clear()
 
-=item   void clear()
+=item  QVariant defaultValue()
 
-=item   QVariant defaultValue()
+=item  bool isAutoValue()
 
-=item   bool isAutoValue()
+=item  bool isGenerated()
 
-=item   bool isGenerated()
+=item  bool isNull()
 
-=item   bool isNull()
+=item  bool isReadOnly()
 
-=item   bool isReadOnly()
+=item  bool isValid()
 
-=item   bool isValid()
+=item  int length()
 
-=item   int length()
+=item  QString name()
 
-=item   QString name()
+=item  bool operator!=()
 
-=item   bool operator!=(const QSqlField & other)
+=item  QSqlField & operator=()
 
-=item   QSqlField & operator=(const QSqlField & other)
+=item  bool operator==()
 
-=item   bool operator==(const QSqlField & other)
+=item  int precision()
 
-=item   int precision()
+=item  QSqlField::RequiredStatus requiredStatus()
 
-=item   QSqlField::RequiredStatus requiredStatus()
+=item  void setAutoValue()
 
-=item   void setAutoValue(bool autoVal)
+=item  void setDefaultValue()
 
-=item   void setDefaultValue(const QVariant & value)
+=item  void setGenerated()
 
-=item   void setGenerated(bool gen)
+=item  void setLength()
 
-=item   void setLength(int fieldLength)
+=item  void setName()
 
-=item   void setName(const QString & name)
+=item  void setPrecision()
 
-=item   void setPrecision(int precision)
+=item  void setReadOnly()
 
-=item   void setReadOnly(bool readOnly)
+=item  void setRequired()
 
-=item   void setRequired(bool required)
+=item  void setRequiredStatus()
 
-=item   void setRequiredStatus(QSqlField::RequiredStatus status)
+=item  void setSqlType()
 
-=item   void setSqlType(int type)
+=item  void setType()
 
-=item   void setType(QVariant::Type type)
+=item  void setValue()
 
-=item   void setValue(const QVariant & value)
+=item  QVariant::Type type()
 
-=item   QVariant::Type type()
+=item  int typeID()
 
-=item   int typeID()
+=item  QVariant value()
 
-=item   QVariant value()
+
+=back
+
+=head1 ENUM VALUES
+
+=over
+
+=item Unknown
+
+=item Optional
+
+=item Required
 
 
 =back

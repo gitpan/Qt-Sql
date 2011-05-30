@@ -7,18 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub NoError() { 0 }
-sub ConnectionError() { 1 }
-sub StatementError() { 2 }
-sub TransactionError() { 3 }
-sub UnknownError() { 4 }
 
 
 1;
@@ -31,47 +23,58 @@ Qt::Sql::QSqlError
 
 =over
 
-=item    QSqlError(const QSqlError & other)
+=item   QSqlError()
 
-=item    QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number = -1)
+=item   QSqlError(, , , )
 
-=item    QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number)
+=item   QSqlError(, , ,  = -1)
 
-=item    QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+=item   QSqlError(, ,  = QSqlError::NoError,  = -1)
 
-=item    QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number = -1)
+=item   QSqlError(,  = QString(),  = QSqlError::NoError,  = -1)
 
-=item    QSqlError(const QString & driverText, const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+=item   QSqlError( = QString(),  = QString(),  = QSqlError::NoError,  = -1)
 
-=item    QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+=item   ~QSqlError()
 
-=item    QSqlError(const QString & driverText = QString(), const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+=item  QString databaseText()
 
-=item    QSqlError(const QString & driverText, const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+=item  QString driverText()
 
-=item    ~QSqlError()
+=item  bool isValid()
 
-=item   QString databaseText()
+=item  int number()
 
-=item   QString driverText()
+=item  QSqlError & operator=()
 
-=item   bool isValid()
+=item  void setDatabaseText()
 
-=item   int number()
+=item  void setDriverText()
 
-=item   QSqlError & operator=(const QSqlError & other)
+=item  void setNumber()
 
-=item   void setDatabaseText(const QString & databaseText)
+=item  void setType()
 
-=item   void setDriverText(const QString & driverText)
+=item  QString text()
 
-=item   void setNumber(int number)
+=item  QSqlError::ErrorType type()
 
-=item   void setType(QSqlError::ErrorType type)
 
-=item   QString text()
+=back
 
-=item   QSqlError::ErrorType type()
+=head1 ENUM VALUES
+
+=over
+
+=item NoError
+
+=item ConnectionError
+
+=item StatementError
+
+=item TransactionError
+
+=item UnknownError
 
 
 =back

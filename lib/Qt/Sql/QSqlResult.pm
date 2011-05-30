@@ -7,19 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
-# enums
-# enum value in perl is enum item index number
-sub PositionalBinding() { 0 }
-sub NamedBinding() { 1 }
-sub BatchOperation() { 0 }
-sub DetachFromResultSet() { 1 }
-sub SetNumericalPrecision() { 2 }
-sub NextResult() { 3 }
 
 
 1;
@@ -32,9 +23,16 @@ Qt::Sql::QSqlResult
 
 =over
 
-=item    ~QSqlResult()
+=item   ~QSqlResult()
 
-=item   QVariant handle()
+=item  QVariant handle()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

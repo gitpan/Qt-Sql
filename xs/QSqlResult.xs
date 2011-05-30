@@ -32,7 +32,10 @@ void
 QSqlResult::handle(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QVariant ret = THIS->handle();
     ST(0) = sv_newmortal();
-    sv_setref_pv(ST(0), "", (void *)new QVariant(ret));
+    sv_setref_pv(ST(0), "Qt::Core::QVariant", (void *)new QVariant(ret));
     XSRETURN(1);
+    }

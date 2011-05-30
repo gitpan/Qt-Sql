@@ -7,11 +7,10 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_01';
+our $VERSION = '0.01_02';
 
 
 # FIXME: operator overload
-
 
 
 1;
@@ -24,17 +23,24 @@ Qt::Sql::QSqlRelation
 
 =over
 
-=item    QSqlRelation()
+=item   QSqlRelation()
 
-=item    QSqlRelation(const QString & aTableName, const QString & indexCol, const QString & displayCol)
+=item   QSqlRelation(, , )
 
-=item   QString displayColumn()
+=item  QString displayColumn()
 
-=item   QString indexColumn()
+=item  QString indexColumn()
 
-=item   bool isValid()
+=item  bool isValid()
 
-=item   QString tableName()
+=item  QString tableName()
+
+
+=back
+
+=head1 ENUM VALUES
+
+=over
 
 
 =back

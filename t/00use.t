@@ -19,8 +19,8 @@ use_ok('Qt::Sql::QSqlDriverCreatorBase');
 use_ok('Qt::Sql::QSqlField');
 use_ok('Qt::Sql::QSqlDatabase');
 use_ok('Qt::Sql::QSqlQueryModel');
+use_ok('Qt::Sql::QSqlDriverPlugin');
 use_ok('Qt::Sql::QSqlDriver');
-use_ok('Qt::Sql::QSqlDriverFactoryInterface');
 use_ok('Qt::Sql::QSqlRelation');
 use_ok('Qt::Sql::QSqlQuery');
 }

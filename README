@@ -14,6 +14,12 @@ PROGRESS
 7. Qt Script module ported.
 8. Qt ScriptTools skipped.
 9. Qt Sql module ported.
+10.Qt Svg module ported.
+11.Qt Test module ported (partially).
+12.Qt UiTools skipped.
+13.Qt WebKit ported.
+14.Qt Xml module ported.
+15.Qt XmlPatterns module ported.
 
 TODO
 

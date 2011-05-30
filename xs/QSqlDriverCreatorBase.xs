@@ -32,7 +32,10 @@ void
 QSqlDriverCreatorBase::createObject(...)
 PREINIT:
 PPCODE:
+    if (1) {
+      
     QSqlDriver * ret = THIS->createObject();
     ST(0) = sv_newmortal();
     sv_setref_pv(ST(0), "Qt::Sql::QSqlDriver", (void *)ret);
     XSRETURN(1);
+    }
