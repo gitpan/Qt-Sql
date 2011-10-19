@@ -19,7 +19,7 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QSqlDatabase()
-##  QSqlDatabase()
+##  QSqlDatabase(const QSqlDatabase & other)
   void
 QSqlDatabase::new(...)
 PREINIT:
@@ -63,10 +63,10 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## static QSqlDatabase addDatabase(, )
-## static QSqlDatabase addDatabase(,  = QLatin1String(QSqlDatabase::defaultConnection))
-## static QSqlDatabase addDatabase(, )
-## static QSqlDatabase addDatabase(,  = QLatin1String(QSqlDatabase::defaultConnection))
+## static QSqlDatabase addDatabase(const QString & type, const QString & connectionName)
+## static QSqlDatabase addDatabase(const QString & type, const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
+## static QSqlDatabase addDatabase(QSqlDriver * driver, const QString & connectionName)
+## static QSqlDatabase addDatabase(QSqlDriver * driver, const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
 void
 QSqlDatabase::addDatabase(...)
 PREINIT:
@@ -143,7 +143,7 @@ PPCODE:
         break;
     }
 
-## static QSqlDatabase cloneDatabase(, )
+## static QSqlDatabase cloneDatabase(const QSqlDatabase & other, const QString & connectionName)
 void
 QSqlDatabase::cloneDatabase(...)
 PREINIT:
@@ -222,8 +222,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static bool contains()
-## static bool contains( = QLatin1String(QSqlDatabase::defaultConnection))
+## static bool contains(const QString & connectionName)
+## static bool contains(const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
 void
 QSqlDatabase::contains(...)
 PREINIT:
@@ -261,9 +261,9 @@ PPCODE:
         break;
     }
 
-## static QSqlDatabase database(, )
-## static QSqlDatabase database(,  = true)
-## static QSqlDatabase database( = QLatin1String(QSqlDatabase::defaultConnection),  = true)
+## static QSqlDatabase database(const QString & connectionName, bool open)
+## static QSqlDatabase database(const QString & connectionName, bool open = true)
+## static QSqlDatabase database(const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection), bool open = true)
 void
 QSqlDatabase::database(...)
 PREINIT:
@@ -371,8 +371,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlQuery exec()
-## QSqlQuery exec( = QString())
+## QSqlQuery exec(const QString & query)
+## QSqlQuery exec(const QString & query = QString())
 void
 QSqlDatabase::exec(...)
 PREINIT:
@@ -423,7 +423,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static bool isDriverAvailable()
+## static bool isDriverAvailable(const QString & name)
 void
 QSqlDatabase::isDriverAvailable(...)
 PREINIT:
@@ -503,7 +503,7 @@ PPCODE:
     }
 
 ## bool open()
-## bool open(, )
+## bool open(const QString & user, const QString & password)
 void
 QSqlDatabase::open(...)
 PREINIT:
@@ -541,7 +541,7 @@ PPCODE:
         break;
     }
 
-## QSqlDatabase & operator=()
+## QSqlDatabase & operator=(const QSqlDatabase & other)
 void
 QSqlDatabase::operator_assign(...)
 PREINIT:
@@ -581,7 +581,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlIndex primaryIndex()
+## QSqlIndex primaryIndex(const QString & tablename)
 void
 QSqlDatabase::primaryIndex(...)
 PREINIT:
@@ -595,7 +595,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlRecord record()
+## QSqlRecord record(const QString & tablename)
 void
 QSqlDatabase::record(...)
 PREINIT:
@@ -609,7 +609,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## static void registerSqlDriver(, )
+## static void registerSqlDriver(const QString & name, QSqlDriverCreatorBase * creator)
 void
 QSqlDatabase::registerSqlDriver(...)
 PREINIT:
@@ -630,7 +630,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## static void removeDatabase()
+## static void removeDatabase(const QString & connectionName)
 void
 QSqlDatabase::removeDatabase(...)
 PREINIT:
@@ -655,8 +655,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setConnectOptions()
-## void setConnectOptions( = QString())
+## void setConnectOptions(const QString & options)
+## void setConnectOptions(const QString & options = QString())
 void
 QSqlDatabase::setConnectOptions(...)
 PREINIT:
@@ -690,7 +690,7 @@ PPCODE:
         break;
     }
 
-## void setDatabaseName()
+## void setDatabaseName(const QString & name)
 void
 QSqlDatabase::setDatabaseName(...)
 PREINIT:
@@ -702,7 +702,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setHostName()
+## void setHostName(const QString & host)
 void
 QSqlDatabase::setHostName(...)
 PREINIT:
@@ -714,7 +714,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setNumericalPrecisionPolicy()
+## void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 void
 QSqlDatabase::setNumericalPrecisionPolicy(...)
 PREINIT:
@@ -726,7 +726,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPassword()
+## void setPassword(const QString & password)
 void
 QSqlDatabase::setPassword(...)
 PREINIT:
@@ -738,7 +738,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPort()
+## void setPort(int p)
 void
 QSqlDatabase::setPort(...)
 PREINIT:
@@ -750,7 +750,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setUserName()
+## void setUserName(const QString & name)
 void
 QSqlDatabase::setUserName(...)
 PREINIT:
@@ -762,8 +762,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QStringList tables()
-## QStringList tables( = QSql::Tables)
+## QStringList tables(QSql::TableType type)
+## QStringList tables(QSql::TableType type = QSql::Tables)
 void
 QSqlDatabase::tables(...)
 PREINIT:

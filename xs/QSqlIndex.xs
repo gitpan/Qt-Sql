@@ -18,10 +18,10 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlIndex()
-##  QSqlIndex(, )
-##  QSqlIndex(,  = QString())
-##  QSqlIndex( = QString(),  = QString())
+##  QSqlIndex(const QSqlIndex & other)
+##  QSqlIndex(const QString & cursorName, const QString & name)
+##  QSqlIndex(const QString & cursorName, const QString & name = QString())
+##  QSqlIndex(const QString & cursorName = QString(), const QString & name = QString())
   void
 QSqlIndex::new(...)
 PREINIT:
@@ -95,8 +95,8 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void append()
-## void append(, )
+## void append(const QSqlField & field)
+## void append(const QSqlField & field, bool desc)
 void
 QSqlIndex::append(...)
 PREINIT:
@@ -146,7 +146,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool isDescending()
+## bool isDescending(int i)
 void
 QSqlIndex::isDescending(...)
 PREINIT:
@@ -173,7 +173,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlIndex & operator=()
+## QSqlIndex & operator=(const QSqlIndex & other)
 void
 QSqlIndex::operator_assign(...)
 PREINIT:
@@ -187,7 +187,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setCursorName()
+## void setCursorName(const QString & cursorName)
 void
 QSqlIndex::setCursorName(...)
 PREINIT:
@@ -199,7 +199,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setDescending(, )
+## void setDescending(int i, bool desc)
 void
 QSqlIndex::setDescending(...)
 PREINIT:
@@ -213,7 +213,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setName()
+## void setName(const QString & name)
 void
 QSqlIndex::setName(...)
 PREINIT:

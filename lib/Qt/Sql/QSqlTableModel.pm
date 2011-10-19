@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Sql::QSqlQueryModel/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Sql::QSqlQueryModel/;
+#our @ISA = qw/Qt::Sql::QSqlQueryModel/;
 
 
 # FIXME: operator overload
@@ -24,79 +25,79 @@ Qt::Sql::QSqlTableModel
 
 =over
 
-=item   QSqlTableModel(, )
+=item   QSqlTableModel(QObject * parent, QSqlDatabase db)
 
-=item   QSqlTableModel(,  = QSqlDatabase())
+=item   QSqlTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
 
-=item   QSqlTableModel( = 0,  = QSqlDatabase())
+=item   QSqlTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase())
 
 =item   ~QSqlTableModel()
 
 =item  void clear()
 
-=item  QVariant data(, )
+=item  QVariant data(const QModelIndex & idx, int role)
 
-=item  QVariant data(,  = Qt::DisplayRole)
+=item  QVariant data(const QModelIndex & idx, int role = Qt::DisplayRole)
 
 =item  QSqlDatabase database()
 
 =item  QSqlTableModel::EditStrategy editStrategy()
 
-=item  int fieldIndex()
+=item  int fieldIndex(const QString & fieldName)
 
 =item  QString filter()
 
-=item  QFlags<Qt::ItemFlag> flags()
+=item  QFlags<Qt::ItemFlag> flags(const QModelIndex & index)
 
-=item  QVariant headerData(, , )
+=item  QVariant headerData(int section, Qt::Orientation orientation, int role)
 
-=item  QVariant headerData(, ,  = Qt::DisplayRole)
+=item  QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
 
-=item  bool insertRecord(, )
+=item  bool insertRecord(int row, const QSqlRecord & record)
 
-=item  bool insertRows(, , )
+=item  bool insertRows(int row, int count, const QModelIndex & parent)
 
-=item  bool insertRows(, ,  = QModelIndex())
+=item  bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex())
 
-=item  bool isDirty()
+=item  bool isDirty(const QModelIndex & index)
 
 =item  QSqlIndex primaryKey()
 
-=item  bool removeColumns(, , )
+=item  bool removeColumns(int column, int count, const QModelIndex & parent)
 
-=item  bool removeColumns(, ,  = QModelIndex())
+=item  bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 
-=item  bool removeRows(, , )
+=item  bool removeRows(int row, int count, const QModelIndex & parent)
 
-=item  bool removeRows(, ,  = QModelIndex())
+=item  bool removeRows(int row, int count, const QModelIndex & parent = QModelIndex())
 
 =item  void revert()
 
 =item  void revertAll()
 
-=item  void revertRow()
+=item  void revertRow(int row)
 
-=item  int rowCount()
+=item  int rowCount(const QModelIndex & parent)
 
-=item  int rowCount( = QModelIndex())
+=item  int rowCount(const QModelIndex & parent = QModelIndex())
 
 =item  bool select()
 
-=item  bool setData(, , )
+=item  bool setData(const QModelIndex & index, const QVariant & value, int role)
 
-=item  bool setData(, ,  = Qt::EditRole)
+=item  bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole)
 
-=item  void setEditStrategy()
+=item  void setEditStrategy(QSqlTableModel::EditStrategy strategy)
 
-=item  void setFilter()
+=item  void setFilter(const QString & filter)
 
-=item  bool setRecord(, )
+=item  bool setRecord(int row, const QSqlRecord & record)
 
-=item  void setSort(, )
+=item  void setSort(int column, Qt::SortOrder order)
 
-=item  void setTable()
+=item  void setTable(const QString & tableName)
 
-=item  void sort(, )
+=item  void sort(int column, Qt::SortOrder order)
 
 =item  bool submit()
 

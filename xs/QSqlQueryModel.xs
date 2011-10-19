@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlQueryModel()
-##  QSqlQueryModel( = 0)
+##  QSqlQueryModel(QObject * parent)
+##  QSqlQueryModel(QObject * parent = 0)
   void
 QSqlQueryModel::new(...)
 PREINIT:
@@ -71,8 +71,8 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## bool canFetchMore()
-## bool canFetchMore( = QModelIndex())
+## bool canFetchMore(const QModelIndex & parent)
+## bool canFetchMore(const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::canFetchMore(...)
 PREINIT:
@@ -121,8 +121,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## int columnCount()
-## int columnCount( = QModelIndex())
+## int columnCount(const QModelIndex & parent)
+## int columnCount(const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::columnCount(...)
 PREINIT:
@@ -160,8 +160,8 @@ PPCODE:
         break;
     }
 
-## QVariant data(, )
-## QVariant data(,  = Qt::DisplayRole)
+## QVariant data(const QModelIndex & item, int role)
+## QVariant data(const QModelIndex & item, int role = Qt::DisplayRole)
 void
 QSqlQueryModel::data(...)
 PREINIT:
@@ -203,8 +203,8 @@ PPCODE:
         break;
     }
 
-## void fetchMore()
-## void fetchMore( = QModelIndex())
+## void fetchMore(const QModelIndex & parent)
+## void fetchMore(const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::fetchMore(...)
 PREINIT:
@@ -238,8 +238,8 @@ PPCODE:
         break;
     }
 
-## QVariant headerData(, , )
-## QVariant headerData(, ,  = Qt::DisplayRole)
+## QVariant headerData(int section, Qt::Orientation orientation, int role)
+## QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
 void
 QSqlQueryModel::headerData(...)
 PREINIT:
@@ -285,8 +285,8 @@ PPCODE:
         break;
     }
 
-## bool insertColumns(, , )
-## bool insertColumns(, ,  = QModelIndex())
+## bool insertColumns(int column, int count, const QModelIndex & parent)
+## bool insertColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::insertColumns(...)
 PREINIT:
@@ -360,7 +360,7 @@ PPCODE:
     }
 
 ## QSqlRecord record()
-## QSqlRecord record()
+## QSqlRecord record(int row)
 void
 QSqlQueryModel::record(...)
 PREINIT:
@@ -396,8 +396,8 @@ PPCODE:
         break;
     }
 
-## bool removeColumns(, , )
-## bool removeColumns(, ,  = QModelIndex())
+## bool removeColumns(int column, int count, const QModelIndex & parent)
+## bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::removeColumns(...)
 PREINIT:
@@ -444,8 +444,8 @@ PPCODE:
         break;
     }
 
-## int rowCount()
-## int rowCount( = QModelIndex())
+## int rowCount(const QModelIndex & parent)
+## int rowCount(const QModelIndex & parent = QModelIndex())
 void
 QSqlQueryModel::rowCount(...)
 PREINIT:
@@ -483,8 +483,8 @@ PPCODE:
         break;
     }
 
-## bool setHeaderData(, , , )
-## bool setHeaderData(, , ,  = Qt::EditRole)
+## bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role)
+## bool setHeaderData(int section, Qt::Orientation orientation, const QVariant & value, int role = Qt::EditRole)
 void
 QSqlQueryModel::setHeaderData(...)
 PREINIT:
@@ -534,9 +534,9 @@ PPCODE:
         break;
     }
 
-## void setQuery()
-## void setQuery(, )
-## void setQuery(,  = QSqlDatabase())
+## void setQuery(const QSqlQuery & query)
+## void setQuery(const QString & query, const QSqlDatabase & db)
+## void setQuery(const QString & query, const QSqlDatabase & db = QSqlDatabase())
 void
 QSqlQueryModel::setQuery(...)
 PREINIT:

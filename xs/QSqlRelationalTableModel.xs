@@ -18,9 +18,9 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlRelationalTableModel(, )
-##  QSqlRelationalTableModel(,  = QSqlDatabase())
-##  QSqlRelationalTableModel( = 0,  = QSqlDatabase())
+##  QSqlRelationalTableModel(QObject * parent, QSqlDatabase db)
+##  QSqlRelationalTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
+##  QSqlRelationalTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase())
   void
 QSqlRelationalTableModel::new(...)
 PREINIT:
@@ -108,8 +108,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QVariant data(, )
-## QVariant data(,  = Qt::DisplayRole)
+## QVariant data(const QModelIndex & item, int role)
+## QVariant data(const QModelIndex & item, int role = Qt::DisplayRole)
 void
 QSqlRelationalTableModel::data(...)
 PREINIT:
@@ -151,7 +151,7 @@ PPCODE:
         break;
     }
 
-## QSqlRelation relation()
+## QSqlRelation relation(int column)
 void
 QSqlRelationalTableModel::relation(...)
 PREINIT:
@@ -165,7 +165,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlTableModel * relationModel()
+## QSqlTableModel * relationModel(int column)
 void
 QSqlRelationalTableModel::relationModel(...)
 PREINIT:
@@ -179,8 +179,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool removeColumns(, , )
-## bool removeColumns(, ,  = QModelIndex())
+## bool removeColumns(int column, int count, const QModelIndex & parent)
+## bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlRelationalTableModel::removeColumns(...)
 PREINIT:
@@ -227,7 +227,7 @@ PPCODE:
         break;
     }
 
-## void revertRow()
+## void revertRow(int row)
 void
 QSqlRelationalTableModel::revertRow(...)
 PREINIT:
@@ -252,8 +252,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool setData(, , )
-## bool setData(, ,  = Qt::EditRole)
+## bool setData(const QModelIndex & item, const QVariant & value, int role)
+## bool setData(const QModelIndex & item, const QVariant & value, int role = Qt::EditRole)
 void
 QSqlRelationalTableModel::setData(...)
 PREINIT:
@@ -299,7 +299,7 @@ PPCODE:
         break;
     }
 
-## void setRelation(, )
+## void setRelation(int column, const QSqlRelation & relation)
 void
 QSqlRelationalTableModel::setRelation(...)
 PREINIT:
@@ -313,7 +313,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setTable()
+## void setTable(const QString & tableName)
 void
 QSqlRelationalTableModel::setTable(...)
 PREINIT:

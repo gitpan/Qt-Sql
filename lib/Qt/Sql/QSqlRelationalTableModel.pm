@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Sql::QSqlTableModel/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Sql::QSqlTableModel/;
+#our @ISA = qw/Qt::Sql::QSqlTableModel/;
 
 
 # FIXME: operator overload
@@ -24,39 +25,39 @@ Qt::Sql::QSqlRelationalTableModel
 
 =over
 
-=item   QSqlRelationalTableModel(, )
+=item   QSqlRelationalTableModel(QObject * parent, QSqlDatabase db)
 
-=item   QSqlRelationalTableModel(,  = QSqlDatabase())
+=item   QSqlRelationalTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
 
-=item   QSqlRelationalTableModel( = 0,  = QSqlDatabase())
+=item   QSqlRelationalTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase())
 
 =item   ~QSqlRelationalTableModel()
 
 =item  void clear()
 
-=item  QVariant data(, )
+=item  QVariant data(const QModelIndex & item, int role)
 
-=item  QVariant data(,  = Qt::DisplayRole)
+=item  QVariant data(const QModelIndex & item, int role = Qt::DisplayRole)
 
-=item  QSqlRelation relation()
+=item  QSqlRelation relation(int column)
 
-=item  QSqlTableModel * relationModel()
+=item  QSqlTableModel * relationModel(int column)
 
-=item  bool removeColumns(, , )
+=item  bool removeColumns(int column, int count, const QModelIndex & parent)
 
-=item  bool removeColumns(, ,  = QModelIndex())
+=item  bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 
-=item  void revertRow()
+=item  void revertRow(int row)
 
 =item  bool select()
 
-=item  bool setData(, , )
+=item  bool setData(const QModelIndex & item, const QVariant & value, int role)
 
-=item  bool setData(, ,  = Qt::EditRole)
+=item  bool setData(const QModelIndex & item, const QVariant & value, int role = Qt::EditRole)
 
-=item  void setRelation(, )
+=item  void setRelation(int column, const QSqlRelation & relation)
 
-=item  void setTable()
+=item  void setTable(const QString & tableName)
 
 
 =back

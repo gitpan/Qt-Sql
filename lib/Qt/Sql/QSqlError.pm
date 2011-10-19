@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -23,17 +23,17 @@ Qt::Sql::QSqlError
 
 =over
 
-=item   QSqlError()
+=item   QSqlError(const QSqlError & other)
 
-=item   QSqlError(, , , )
+=item   QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number)
 
-=item   QSqlError(, , ,  = -1)
+=item   QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number = -1)
 
-=item   QSqlError(, ,  = QSqlError::NoError,  = -1)
+=item   QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
 
-=item   QSqlError(,  = QString(),  = QSqlError::NoError,  = -1)
+=item   QSqlError(const QString & driverText, const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
 
-=item   QSqlError( = QString(),  = QString(),  = QSqlError::NoError,  = -1)
+=item   QSqlError(const QString & driverText = QString(), const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
 
 =item   ~QSqlError()
 
@@ -45,15 +45,15 @@ Qt::Sql::QSqlError
 
 =item  int number()
 
-=item  QSqlError & operator=()
+=item  QSqlError & operator=(const QSqlError & other)
 
-=item  void setDatabaseText()
+=item  void setDatabaseText(const QString & databaseText)
 
-=item  void setDriverText()
+=item  void setDriverText(const QString & driverText)
 
-=item  void setNumber()
+=item  void setNumber(int number)
 
-=item  void setType()
+=item  void setType(QSqlError::ErrorType type)
 
 =item  QString text()
 

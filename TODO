@@ -1,9 +1,10 @@
-0. [FIXED] fix bug on skipping overload method with the same number of argument;
-1. template class support;
-2. fix QGenericMatrix<2, 2, qreal>
-3. va_list support - QPolygon::putPoints(int index, int nPoints, int firstx, int firsty, ...)
-4. static function support (in namespace);
-5. Qt signal/slot support;
-6. [FIXED] other Qt modules;
-7. unit test;
-8. perl-ish enhancements;
+   * [FIXED] fix bug on skipping overload method with the same number of argument;
+   * template class support;
+   * fix QGenericMatrix<2, 2, qreal>
+   * va_list support - QPolygon::putPoints(int index, int nPoints, int firstx, int firsty, ...)
+   * static function support (in namespace);
+   * Qt signal/slot support;
+   * [FIXED] other Qt modules;
+   * support windows/mac;
+   * unit test;
+   * perl-ish enhancements;

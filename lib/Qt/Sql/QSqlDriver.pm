@@ -7,8 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Core::QObject/;
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -24,9 +23,9 @@ Qt::Sql::QSqlDriver
 
 =over
 
-=item   QSqlDriver()
+=item   QSqlDriver(QObject * parent)
 
-=item   QSqlDriver( = 0)
+=item   QSqlDriver(QObject * parent = 0)
 
 =item   ~QSqlDriver()
 
@@ -38,17 +37,17 @@ Qt::Sql::QSqlDriver
 
 =item  QSqlResult * createResult()
 
-=item  QString escapeIdentifier(, )
+=item  QString escapeIdentifier(const QString & identifier, QSqlDriver::IdentifierType type)
 
-=item  QString formatValue(, )
+=item  QString formatValue(const QSqlField & field, bool trimStrings)
 
-=item  QString formatValue(,  = false)
+=item  QString formatValue(const QSqlField & field, bool trimStrings = false)
 
 =item  QVariant handle()
 
-=item  bool hasFeature()
+=item  bool hasFeature(QSqlDriver::DriverFeature f)
 
-=item  bool isIdentifierEscaped(, )
+=item  bool isIdentifierEscaped(const QString & identifier, QSqlDriver::IdentifierType type)
 
 =item  bool isOpen()
 
@@ -58,37 +57,37 @@ Qt::Sql::QSqlDriver
 
 =item  QSql::NumericalPrecisionPolicy numericalPrecisionPolicy()
 
-=item  bool open(, , , , , )
+=item  bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts)
 
-=item  bool open(, , , , ,  = QString())
+=item  bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts = QString())
 
-=item  bool open(, , , ,  = -1,  = QString())
+=item  bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port = -1, const QString & connOpts = QString())
 
-=item  bool open(, , ,  = QString(),  = -1,  = QString())
+=item  bool open(const QString & db, const QString & user, const QString & password, const QString & host = QString(), int port = -1, const QString & connOpts = QString())
 
-=item  bool open(, ,  = QString(),  = QString(),  = -1,  = QString())
+=item  bool open(const QString & db, const QString & user, const QString & password = QString(), const QString & host = QString(), int port = -1, const QString & connOpts = QString())
 
-=item  bool open(,  = QString(),  = QString(),  = QString(),  = -1,  = QString())
+=item  bool open(const QString & db, const QString & user = QString(), const QString & password = QString(), const QString & host = QString(), int port = -1, const QString & connOpts = QString())
 
-=item  QSqlIndex primaryIndex()
+=item  QSqlIndex primaryIndex(const QString & tableName)
 
-=item  QSqlRecord record()
+=item  QSqlRecord record(const QString & tableName)
 
 =item  bool rollbackTransaction()
 
-=item  void setNumericalPrecisionPolicy()
+=item  void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 
-=item  QString sqlStatement(, , , )
+=item  QString sqlStatement(QSqlDriver::StatementType type, const QString & tableName, const QSqlRecord & rec, bool preparedStatement)
 
-=item  QString stripDelimiters(, )
+=item  QString stripDelimiters(const QString & identifier, QSqlDriver::IdentifierType type)
 
-=item  bool subscribeToNotification()
+=item  bool subscribeToNotification(const QString & name)
 
 =item  QStringList subscribedToNotifications()
 
-=item  QStringList tables()
+=item  QStringList tables(QSql::TableType tableType)
 
-=item  bool unsubscribeFromNotification()
+=item  bool unsubscribeFromNotification(const QString & name)
 
 
 =back

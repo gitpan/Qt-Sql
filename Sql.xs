@@ -22,6 +22,7 @@
 #include "ppport.h"
 #undef do_open
 #undef do_close
+#undef RETURN
 
 typedef bool (*T_FPOINTER_QINTERNALCALLBACK_QNAMESPACE)(void **);
 typedef void (*T_FPOINTER_QTMSGHANDLER_QGLOBAL)(QtMsgType,const char *);
@@ -32,6 +33,7 @@ PROTOTYPES: DISABLE
 INCLUDE:		xs/QSqlDatabase.xs
 INCLUDE:		xs/QSqlDriver.xs
 INCLUDE:		xs/QSqlDriverCreatorBase.xs
+INCLUDE:		xs/QSqlDriverFactoryInterface.xs
 INCLUDE:		xs/QSqlDriverPlugin.xs
 INCLUDE:		xs/QSqlError.xs
 INCLUDE:		xs/QSqlField.xs

@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlDriverPlugin()
-##  QSqlDriverPlugin( = 0)
+##  QSqlDriverPlugin(QObject * parent)
+##  QSqlDriverPlugin(QObject * parent = 0)
   void
 QSqlDriverPlugin::new(...)
 PREINIT:
@@ -65,7 +65,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## QSqlDriver * create()
+## QSqlDriver * create(const QString & key)
 void
 QSqlDriverPlugin::create(...)
 PREINIT:

@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -25,19 +25,19 @@ Qt::Sql::QSqlDatabase
 
 =item   QSqlDatabase()
 
-=item   QSqlDatabase()
+=item   QSqlDatabase(const QSqlDatabase & other)
 
 =item   ~QSqlDatabase()
 
-=item  static QSqlDatabase addDatabase(, )
+=item  static QSqlDatabase addDatabase(const QString & type, const QString & connectionName)
 
-=item  static QSqlDatabase addDatabase(,  = QLatin1String(QSqlDatabase::defaultConnection))
+=item  static QSqlDatabase addDatabase(const QString & type, const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
 
-=item  static QSqlDatabase addDatabase(, )
+=item  static QSqlDatabase addDatabase(QSqlDriver * driver, const QString & connectionName)
 
-=item  static QSqlDatabase addDatabase(,  = QLatin1String(QSqlDatabase::defaultConnection))
+=item  static QSqlDatabase addDatabase(QSqlDriver * driver, const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
 
-=item  static QSqlDatabase cloneDatabase(, )
+=item  static QSqlDatabase cloneDatabase(const QSqlDatabase & other, const QString & connectionName)
 
 =item  void close()
 
@@ -49,15 +49,15 @@ Qt::Sql::QSqlDatabase
 
 =item  static QStringList connectionNames()
 
-=item  static bool contains()
+=item  static bool contains(const QString & connectionName)
 
-=item  static bool contains( = QLatin1String(QSqlDatabase::defaultConnection))
+=item  static bool contains(const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection))
 
-=item  static QSqlDatabase database(, )
+=item  static QSqlDatabase database(const QString & connectionName, bool open)
 
-=item  static QSqlDatabase database(,  = true)
+=item  static QSqlDatabase database(const QString & connectionName, bool open = true)
 
-=item  static QSqlDatabase database( = QLatin1String(QSqlDatabase::defaultConnection),  = true)
+=item  static QSqlDatabase database(const QString & connectionName = QLatin1String(QSqlDatabase::defaultConnection), bool open = true)
 
 =item  QString databaseName()
 
@@ -67,13 +67,13 @@ Qt::Sql::QSqlDatabase
 
 =item  static QStringList drivers()
 
-=item  QSqlQuery exec()
+=item  QSqlQuery exec(const QString & query)
 
-=item  QSqlQuery exec( = QString())
+=item  QSqlQuery exec(const QString & query = QString())
 
 =item  QString hostName()
 
-=item  static bool isDriverAvailable()
+=item  static bool isDriverAvailable(const QString & name)
 
 =item  bool isOpen()
 
@@ -87,43 +87,43 @@ Qt::Sql::QSqlDatabase
 
 =item  bool open()
 
-=item  bool open(, )
+=item  bool open(const QString & user, const QString & password)
 
-=item  QSqlDatabase & operator=()
+=item  QSqlDatabase & operator=(const QSqlDatabase & other)
 
 =item  QString password()
 
 =item  int port()
 
-=item  QSqlIndex primaryIndex()
+=item  QSqlIndex primaryIndex(const QString & tablename)
 
-=item  QSqlRecord record()
+=item  QSqlRecord record(const QString & tablename)
 
-=item  static void registerSqlDriver(, )
+=item  static void registerSqlDriver(const QString & name, QSqlDriverCreatorBase * creator)
 
-=item  static void removeDatabase()
+=item  static void removeDatabase(const QString & connectionName)
 
 =item  bool rollback()
 
-=item  void setConnectOptions()
+=item  void setConnectOptions(const QString & options)
 
-=item  void setConnectOptions( = QString())
+=item  void setConnectOptions(const QString & options = QString())
 
-=item  void setDatabaseName()
+=item  void setDatabaseName(const QString & name)
 
-=item  void setHostName()
+=item  void setHostName(const QString & host)
 
-=item  void setNumericalPrecisionPolicy()
+=item  void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 
-=item  void setPassword()
+=item  void setPassword(const QString & password)
 
-=item  void setPort()
+=item  void setPort(int p)
 
-=item  void setUserName()
+=item  void setUserName(const QString & name)
 
-=item  QStringList tables()
+=item  QStringList tables(QSql::TableType type)
 
-=item  QStringList tables( = QSql::Tables)
+=item  QStringList tables(QSql::TableType type = QSql::Tables)
 
 =item  bool transaction()
 

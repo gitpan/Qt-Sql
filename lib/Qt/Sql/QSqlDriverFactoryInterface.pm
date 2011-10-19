@@ -1,6 +1,6 @@
-package Qt::Sql::QSqlDriverPlugin;
+package Qt::Sql::QSqlDriverFactoryInterface;
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
-# classname: QSqlDriverPlugin
+# classname: QSqlDriverFactoryInterface
 # file     : QtSql/qsqldriverplugin.h
 
 use strict;
@@ -8,8 +8,6 @@ use warnings;
 #use Carp;
 
 our $VERSION = '0.01_03';
-use base qw/Qt::Sql::QSqlDriverFactoryInterface/;
-#our @ISA = qw/Qt::Sql::QSqlDriverFactoryInterface/;
 
 
 # FIXME: operator overload
@@ -19,21 +17,11 @@ use base qw/Qt::Sql::QSqlDriverFactoryInterface/;
 
 =head1 NAME
 
-Qt::Sql::QSqlDriverPlugin
+Qt::Sql::QSqlDriverFactoryInterface
 
 =head1 PUBLIC METHODS
 
 =over
-
-=item   QSqlDriverPlugin(QObject * parent)
-
-=item   QSqlDriverPlugin(QObject * parent = 0)
-
-=item   ~QSqlDriverPlugin()
-
-=item  QSqlDriver * create(const QString & key)
-
-=item  QStringList keys()
 
 
 =back

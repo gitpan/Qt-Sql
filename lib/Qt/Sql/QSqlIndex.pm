@@ -7,8 +7,9 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
-our $ISA     = qw/Qt::Sql::QSqlRecord/;
+our $VERSION = '0.01_03';
+use base qw/Qt::Sql::QSqlRecord/;
+#our @ISA = qw/Qt::Sql::QSqlRecord/;
 
 
 # FIXME: operator overload
@@ -24,33 +25,33 @@ Qt::Sql::QSqlIndex
 
 =over
 
-=item   QSqlIndex()
+=item   QSqlIndex(const QSqlIndex & other)
 
-=item   QSqlIndex(, )
+=item   QSqlIndex(const QString & cursorName, const QString & name)
 
-=item   QSqlIndex(,  = QString())
+=item   QSqlIndex(const QString & cursorName, const QString & name = QString())
 
-=item   QSqlIndex( = QString(),  = QString())
+=item   QSqlIndex(const QString & cursorName = QString(), const QString & name = QString())
 
 =item   ~QSqlIndex()
 
-=item  void append()
+=item  void append(const QSqlField & field)
 
-=item  void append(, )
+=item  void append(const QSqlField & field, bool desc)
 
 =item  QString cursorName()
 
-=item  bool isDescending()
+=item  bool isDescending(int i)
 
 =item  QString name()
 
-=item  QSqlIndex & operator=()
+=item  QSqlIndex & operator=(const QSqlIndex & other)
 
-=item  void setCursorName()
+=item  void setCursorName(const QString & cursorName)
 
-=item  void setDescending(, )
+=item  void setDescending(int i, bool desc)
 
-=item  void setName()
+=item  void setName(const QString & name)
 
 
 =back

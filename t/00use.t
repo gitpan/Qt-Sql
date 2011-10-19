@@ -5,7 +5,7 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 16;
+use Test::More tests => 17;
 BEGIN {
 use_ok('Qt::Sql');
 use_ok('Qt::Sql');
@@ -21,6 +21,7 @@ use_ok('Qt::Sql::QSqlDatabase');
 use_ok('Qt::Sql::QSqlQueryModel');
 use_ok('Qt::Sql::QSqlDriverPlugin');
 use_ok('Qt::Sql::QSqlDriver');
+use_ok('Qt::Sql::QSqlDriverFactoryInterface');
 use_ok('Qt::Sql::QSqlRelation');
 use_ok('Qt::Sql::QSqlQuery');
 }

@@ -18,12 +18,12 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlQuery()
-##  QSqlQuery()
-##  QSqlQuery()
-##  QSqlQuery(, )
-##  QSqlQuery(,  = QSqlDatabase())
-##  QSqlQuery( = QString(),  = QSqlDatabase())
+##  QSqlQuery(QSqlResult * r)
+##  QSqlQuery(QSqlDatabase db)
+##  QSqlQuery(const QSqlQuery & other)
+##  QSqlQuery(const QString & query, QSqlDatabase db)
+##  QSqlQuery(const QString & query, QSqlDatabase db = QSqlDatabase())
+##  QSqlQuery(const QString & query = QString(), QSqlDatabase db = QSqlDatabase())
   void
 QSqlQuery::new(...)
 PREINIT:
@@ -118,8 +118,8 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void addBindValue(, )
-## void addBindValue(,  = QSql::In)
+## void addBindValue(const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
+## void addBindValue(const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
 void
 QSqlQuery::addBindValue(...)
 PREINIT:
@@ -170,10 +170,10 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void bindValue(, , )
-## void bindValue(, ,  = QSql::In)
-## void bindValue(, , )
-## void bindValue(, ,  = QSql::In)
+## void bindValue(const QString & placeholder, const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
+## void bindValue(const QString & placeholder, const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
+## void bindValue(int pos, const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
+## void bindValue(int pos, const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
 void
 QSqlQuery::bindValue(...)
 PREINIT:
@@ -234,8 +234,8 @@ PPCODE:
         break;
     }
 
-## QVariant boundValue()
-## QVariant boundValue()
+## QVariant boundValue(const QString & placeholder)
+## QVariant boundValue(int pos)
 void
 QSqlQuery::boundValue(...)
 PREINIT:
@@ -293,7 +293,7 @@ PPCODE:
     }
 
 ## bool exec()
-## bool exec()
+## bool exec(const QString & query)
 void
 QSqlQuery::exec(...)
 PREINIT:
@@ -329,8 +329,8 @@ PPCODE:
         break;
     }
 
-## bool execBatch()
-## bool execBatch( = QSqlQuery::ValuesAsRows)
+## bool execBatch(QSqlQuery::BatchExecutionMode mode)
+## bool execBatch(QSqlQuery::BatchExecutionMode mode = QSqlQuery::ValuesAsRows)
 void
 QSqlQuery::execBatch(...)
 PREINIT:
@@ -430,7 +430,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool isNull()
+## bool isNull(int field)
 void
 QSqlQuery::isNull(...)
 PREINIT:
@@ -574,7 +574,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlQuery & operator=()
+## QSqlQuery & operator=(const QSqlQuery & other)
 void
 QSqlQuery::operator_assign(...)
 PREINIT:
@@ -588,7 +588,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool prepare()
+## bool prepare(const QString & query)
 void
 QSqlQuery::prepare(...)
 PREINIT:
@@ -641,8 +641,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool seek(, )
-## bool seek(,  = false)
+## bool seek(int i, bool relative)
+## bool seek(int i, bool relative = false)
 void
 QSqlQuery::seek(...)
 PREINIT:
@@ -684,7 +684,7 @@ PPCODE:
         break;
     }
 
-## void setForwardOnly()
+## void setForwardOnly(bool forward)
 void
 QSqlQuery::setForwardOnly(...)
 PREINIT:
@@ -696,7 +696,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setNumericalPrecisionPolicy()
+## void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 void
 QSqlQuery::setNumericalPrecisionPolicy(...)
 PREINIT:
@@ -721,7 +721,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant value()
+## QVariant value(int i)
 void
 QSqlQuery::value(...)
 PREINIT:

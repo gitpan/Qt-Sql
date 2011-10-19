@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -23,37 +23,37 @@ Qt::Sql::QSqlQuery
 
 =over
 
-=item   QSqlQuery()
+=item   QSqlQuery(QSqlResult * r)
 
-=item   QSqlQuery()
+=item   QSqlQuery(QSqlDatabase db)
 
-=item   QSqlQuery()
+=item   QSqlQuery(const QSqlQuery & other)
 
-=item   QSqlQuery(, )
+=item   QSqlQuery(const QString & query, QSqlDatabase db)
 
-=item   QSqlQuery(,  = QSqlDatabase())
+=item   QSqlQuery(const QString & query, QSqlDatabase db = QSqlDatabase())
 
-=item   QSqlQuery( = QString(),  = QSqlDatabase())
+=item   QSqlQuery(const QString & query = QString(), QSqlDatabase db = QSqlDatabase())
 
 =item   ~QSqlQuery()
 
-=item  void addBindValue(, )
+=item  void addBindValue(const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
 
-=item  void addBindValue(,  = QSql::In)
+=item  void addBindValue(const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
 
 =item  int at()
 
-=item  void bindValue(, , )
+=item  void bindValue(const QString & placeholder, const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
 
-=item  void bindValue(, ,  = QSql::In)
+=item  void bindValue(const QString & placeholder, const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
 
-=item  void bindValue(, , )
+=item  void bindValue(int pos, const QVariant & val, QFlags<QSql::ParamTypeFlag> type)
 
-=item  void bindValue(, ,  = QSql::In)
+=item  void bindValue(int pos, const QVariant & val, QFlags<QSql::ParamTypeFlag> type = QSql::In)
 
-=item  QVariant boundValue()
+=item  QVariant boundValue(const QString & placeholder)
 
-=item  QVariant boundValue()
+=item  QVariant boundValue(int pos)
 
 =item  void clear()
 
@@ -61,11 +61,11 @@ Qt::Sql::QSqlQuery
 
 =item  bool exec()
 
-=item  bool exec()
+=item  bool exec(const QString & query)
 
-=item  bool execBatch()
+=item  bool execBatch(QSqlQuery::BatchExecutionMode mode)
 
-=item  bool execBatch( = QSqlQuery::ValuesAsRows)
+=item  bool execBatch(QSqlQuery::BatchExecutionMode mode = QSqlQuery::ValuesAsRows)
 
 =item  QString executedQuery()
 
@@ -77,7 +77,7 @@ Qt::Sql::QSqlQuery
 
 =item  bool isForwardOnly()
 
-=item  bool isNull()
+=item  bool isNull(int field)
 
 =item  bool isSelect()
 
@@ -99,9 +99,9 @@ Qt::Sql::QSqlQuery
 
 =item  QSql::NumericalPrecisionPolicy numericalPrecisionPolicy()
 
-=item  QSqlQuery & operator=()
+=item  QSqlQuery & operator=(const QSqlQuery & other)
 
-=item  bool prepare()
+=item  bool prepare(const QString & query)
 
 =item  bool previous()
 
@@ -109,17 +109,17 @@ Qt::Sql::QSqlQuery
 
 =item  const QSqlResult * result()
 
-=item  bool seek(, )
+=item  bool seek(int i, bool relative)
 
-=item  bool seek(,  = false)
+=item  bool seek(int i, bool relative = false)
 
-=item  void setForwardOnly()
+=item  void setForwardOnly(bool forward)
 
-=item  void setNumericalPrecisionPolicy()
+=item  void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 
 =item  int size()
 
-=item  QVariant value()
+=item  QVariant value(int i)
 
 
 =back

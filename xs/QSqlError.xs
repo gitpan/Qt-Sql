@@ -18,12 +18,12 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlError()
-##  QSqlError(, , , )
-##  QSqlError(, , ,  = -1)
-##  QSqlError(, ,  = QSqlError::NoError,  = -1)
-##  QSqlError(,  = QString(),  = QSqlError::NoError,  = -1)
-##  QSqlError( = QString(),  = QString(),  = QSqlError::NoError,  = -1)
+##  QSqlError(const QSqlError & other)
+##  QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number)
+##  QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type, int number = -1)
+##  QSqlError(const QString & driverText, const QString & databaseText, QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+##  QSqlError(const QString & driverText, const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
+##  QSqlError(const QString & driverText = QString(), const QString & databaseText = QString(), QSqlError::ErrorType type = QSqlError::NoError, int number = -1)
   void
 QSqlError::new(...)
 PREINIT:
@@ -194,7 +194,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlError & operator=()
+## QSqlError & operator=(const QSqlError & other)
 void
 QSqlError::operator_assign(...)
 PREINIT:
@@ -208,7 +208,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setDatabaseText()
+## void setDatabaseText(const QString & databaseText)
 void
 QSqlError::setDatabaseText(...)
 PREINIT:
@@ -220,7 +220,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setDriverText()
+## void setDriverText(const QString & driverText)
 void
 QSqlError::setDriverText(...)
 PREINIT:
@@ -232,7 +232,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setNumber()
+## void setNumber(int number)
 void
 QSqlError::setNumber(...)
 PREINIT:
@@ -244,7 +244,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setType()
+## void setType(QSqlError::ErrorType type)
 void
 QSqlError::setType(...)
 PREINIT:

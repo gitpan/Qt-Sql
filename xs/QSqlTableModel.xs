@@ -18,9 +18,9 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlTableModel(, )
-##  QSqlTableModel(,  = QSqlDatabase())
-##  QSqlTableModel( = 0,  = QSqlDatabase())
+##  QSqlTableModel(QObject * parent, QSqlDatabase db)
+##  QSqlTableModel(QObject * parent, QSqlDatabase db = QSqlDatabase())
+##  QSqlTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase())
   void
 QSqlTableModel::new(...)
 PREINIT:
@@ -108,8 +108,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QVariant data(, )
-## QVariant data(,  = Qt::DisplayRole)
+## QVariant data(const QModelIndex & idx, int role)
+## QVariant data(const QModelIndex & idx, int role = Qt::DisplayRole)
 void
 QSqlTableModel::data(...)
 PREINIT:
@@ -177,7 +177,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int fieldIndex()
+## int fieldIndex(const QString & fieldName)
 void
 QSqlTableModel::fieldIndex(...)
 PREINIT:
@@ -204,7 +204,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QFlags<Qt::ItemFlag> flags()
+## QFlags<Qt::ItemFlag> flags(const QModelIndex & index)
 void
 QSqlTableModel::flags(...)
 PREINIT:
@@ -218,8 +218,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QVariant headerData(, , )
-## QVariant headerData(, ,  = Qt::DisplayRole)
+## QVariant headerData(int section, Qt::Orientation orientation, int role)
+## QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole)
 void
 QSqlTableModel::headerData(...)
 PREINIT:
@@ -265,7 +265,7 @@ PPCODE:
         break;
     }
 
-## bool insertRecord(, )
+## bool insertRecord(int row, const QSqlRecord & record)
 void
 QSqlTableModel::insertRecord(...)
 PREINIT:
@@ -281,8 +281,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool insertRows(, , )
-## bool insertRows(, ,  = QModelIndex())
+## bool insertRows(int row, int count, const QModelIndex & parent)
+## bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlTableModel::insertRows(...)
 PREINIT:
@@ -329,7 +329,7 @@ PPCODE:
         break;
     }
 
-## bool isDirty()
+## bool isDirty(const QModelIndex & index)
 void
 QSqlTableModel::isDirty(...)
 PREINIT:
@@ -356,8 +356,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool removeColumns(, , )
-## bool removeColumns(, ,  = QModelIndex())
+## bool removeColumns(int column, int count, const QModelIndex & parent)
+## bool removeColumns(int column, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlTableModel::removeColumns(...)
 PREINIT:
@@ -404,8 +404,8 @@ PPCODE:
         break;
     }
 
-## bool removeRows(, , )
-## bool removeRows(, ,  = QModelIndex())
+## bool removeRows(int row, int count, const QModelIndex & parent)
+## bool removeRows(int row, int count, const QModelIndex & parent = QModelIndex())
 void
 QSqlTableModel::removeRows(...)
 PREINIT:
@@ -474,7 +474,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void revertRow()
+## void revertRow(int row)
 void
 QSqlTableModel::revertRow(...)
 PREINIT:
@@ -486,8 +486,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## int rowCount()
-## int rowCount( = QModelIndex())
+## int rowCount(const QModelIndex & parent)
+## int rowCount(const QModelIndex & parent = QModelIndex())
 void
 QSqlTableModel::rowCount(...)
 PREINIT:
@@ -538,8 +538,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool setData(, , )
-## bool setData(, ,  = Qt::EditRole)
+## bool setData(const QModelIndex & index, const QVariant & value, int role)
+## bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole)
 void
 QSqlTableModel::setData(...)
 PREINIT:
@@ -585,7 +585,7 @@ PPCODE:
         break;
     }
 
-## void setEditStrategy()
+## void setEditStrategy(QSqlTableModel::EditStrategy strategy)
 void
 QSqlTableModel::setEditStrategy(...)
 PREINIT:
@@ -597,7 +597,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setFilter()
+## void setFilter(const QString & filter)
 void
 QSqlTableModel::setFilter(...)
 PREINIT:
@@ -609,7 +609,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## bool setRecord(, )
+## bool setRecord(int row, const QSqlRecord & record)
 void
 QSqlTableModel::setRecord(...)
 PREINIT:
@@ -625,7 +625,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setSort(, )
+## void setSort(int column, Qt::SortOrder order)
 void
 QSqlTableModel::setSort(...)
 PREINIT:
@@ -639,7 +639,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setTable()
+## void setTable(const QString & tableName)
 void
 QSqlTableModel::setTable(...)
 PREINIT:
@@ -651,7 +651,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void sort(, )
+## void sort(int column, Qt::SortOrder order)
 void
 QSqlTableModel::sort(...)
 PREINIT:

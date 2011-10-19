@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_02';
+our $VERSION = '0.01_03';
 
 
 # FIXME: operator overload
@@ -25,65 +25,65 @@ Qt::Sql::QSqlRecord
 
 =item   QSqlRecord()
 
-=item   QSqlRecord()
+=item   QSqlRecord(const QSqlRecord & other)
 
 =item   ~QSqlRecord()
 
-=item  void append()
+=item  void append(const QSqlField & field)
 
 =item  void clear()
 
 =item  void clearValues()
 
-=item  bool contains()
+=item  bool contains(const QString & name)
 
 =item  int count()
 
-=item  QSqlField field()
+=item  QSqlField field(int i)
 
-=item  QSqlField field()
+=item  QSqlField field(const QString & name)
 
-=item  QString fieldName()
+=item  QString fieldName(int i)
 
-=item  int indexOf()
+=item  int indexOf(const QString & name)
 
-=item  void insert(, )
+=item  void insert(int pos, const QSqlField & field)
 
 =item  bool isEmpty()
 
-=item  bool isGenerated()
+=item  bool isGenerated(int i)
 
-=item  bool isGenerated()
+=item  bool isGenerated(const QString & name)
 
-=item  bool isNull()
+=item  bool isNull(int i)
 
-=item  bool isNull()
+=item  bool isNull(const QString & name)
 
-=item  bool operator!=()
+=item  bool operator!=(const QSqlRecord & other)
 
-=item  QSqlRecord & operator=()
+=item  QSqlRecord & operator=(const QSqlRecord & other)
 
-=item  bool operator==()
+=item  bool operator==(const QSqlRecord & other)
 
-=item  void remove()
+=item  void remove(int pos)
 
-=item  void replace(, )
+=item  void replace(int pos, const QSqlField & field)
 
-=item  void setGenerated(, )
+=item  void setGenerated(const QString & name, bool generated)
 
-=item  void setGenerated(, )
+=item  void setGenerated(int i, bool generated)
 
-=item  void setNull()
+=item  void setNull(int i)
 
-=item  void setNull()
+=item  void setNull(const QString & name)
 
-=item  void setValue(, )
+=item  void setValue(int i, const QVariant & val)
 
-=item  void setValue(, )
+=item  void setValue(const QString & name, const QVariant & val)
 
-=item  QVariant value()
+=item  QVariant value(int i)
 
-=item  QVariant value()
+=item  QVariant value(const QString & name)
 
 
 =back

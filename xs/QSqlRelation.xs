@@ -19,7 +19,7 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QSqlRelation()
-##  QSqlRelation(, , )
+##  QSqlRelation(const QString & aTableName, const QString & indexCol, const QString & displayCol)
   void
 QSqlRelation::new(...)
 PREINIT:

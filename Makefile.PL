@@ -1,11 +1,24 @@
 use 5.008003;
 use ExtUtils::MakeMaker;
 
+BEGIN {
+    require Carp;
+    if (!-d '/usr/include/qt4') {
+        Carp::croak(<<EOF);
+ERROR: This binding requires C++ Qt4 libraries and devel header files installed.
+       Usually the header files are located within /usr/include/qt4.
+       There is no such directory on your system, it is very likely this 
+       installation will not proceed properly.
+ABORT NOW!
+EOF
+    }
+}
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(
     NAME         => 'Qt::Sql',
-    VERSION      => '0.01_02',
+    VERSION      => '0.01_03',
     LICENSE      => 'perl',
     PREREQ_PM    => {},
     ABSTRACT     => 'Qt Sql binding',

@@ -19,7 +19,7 @@ PROTOTYPES: DISABLE
 ################################################################
 
 ##  QSqlRecord()
-##  QSqlRecord()
+##  QSqlRecord(const QSqlRecord & other)
   void
 QSqlRecord::new(...)
 PREINIT:
@@ -63,7 +63,7 @@ CODE:
     if(THIS != 0 && !SvREADONLY(SvRV(ST(0))))
         delete THIS;
 
-## void append()
+## void append(const QSqlField & field)
 void
 QSqlRecord::append(...)
 PREINIT:
@@ -97,7 +97,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## bool contains()
+## bool contains(const QString & name)
 void
 QSqlRecord::contains(...)
 PREINIT:
@@ -124,8 +124,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlField field()
-## QSqlField field()
+## QSqlField field(int i)
+## QSqlField field(const QString & name)
 void
 QSqlRecord::field(...)
 PREINIT:
@@ -158,7 +158,7 @@ PPCODE:
         break;
     }
 
-## QString fieldName()
+## QString fieldName(int i)
 void
 QSqlRecord::fieldName(...)
 PREINIT:
@@ -172,7 +172,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## int indexOf()
+## int indexOf(const QString & name)
 void
 QSqlRecord::indexOf(...)
 PREINIT:
@@ -186,7 +186,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void insert(, )
+## void insert(int pos, const QSqlField & field)
 void
 QSqlRecord::insert(...)
 PREINIT:
@@ -213,8 +213,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool isGenerated()
-## bool isGenerated()
+## bool isGenerated(int i)
+## bool isGenerated(const QString & name)
 void
 QSqlRecord::isGenerated(...)
 PREINIT:
@@ -247,8 +247,8 @@ PPCODE:
         break;
     }
 
-## bool isNull()
-## bool isNull()
+## bool isNull(int i)
+## bool isNull(const QString & name)
 void
 QSqlRecord::isNull(...)
 PREINIT:
@@ -281,7 +281,7 @@ PPCODE:
         break;
     }
 
-## bool operator!=()
+## bool operator!=(const QSqlRecord & other)
 void
 QSqlRecord::operator_not_equal(...)
 PREINIT:
@@ -295,7 +295,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlRecord & operator=()
+## QSqlRecord & operator=(const QSqlRecord & other)
 void
 QSqlRecord::operator_assign(...)
 PREINIT:
@@ -309,7 +309,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool operator==()
+## bool operator==(const QSqlRecord & other)
 void
 QSqlRecord::operator_equal_to(...)
 PREINIT:
@@ -323,7 +323,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void remove()
+## void remove(int pos)
 void
 QSqlRecord::remove(...)
 PREINIT:
@@ -335,7 +335,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void replace(, )
+## void replace(int pos, const QSqlField & field)
 void
 QSqlRecord::replace(...)
 PREINIT:
@@ -349,8 +349,8 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setGenerated(, )
-## void setGenerated(, )
+## void setGenerated(const QString & name, bool generated)
+## void setGenerated(int i, bool generated)
 void
 QSqlRecord::setGenerated(...)
 PREINIT:
@@ -383,8 +383,8 @@ PPCODE:
         break;
     }
 
-## void setNull()
-## void setNull()
+## void setNull(int i)
+## void setNull(const QString & name)
 void
 QSqlRecord::setNull(...)
 PREINIT:
@@ -413,8 +413,8 @@ PPCODE:
         break;
     }
 
-## void setValue(, )
-## void setValue(, )
+## void setValue(int i, const QVariant & val)
+## void setValue(const QString & name, const QVariant & val)
 void
 QSqlRecord::setValue(...)
 PREINIT:
@@ -447,8 +447,8 @@ PPCODE:
         break;
     }
 
-## QVariant value()
-## QVariant value()
+## QVariant value(int i)
+## QVariant value(const QString & name)
 void
 QSqlRecord::value(...)
 PREINIT:

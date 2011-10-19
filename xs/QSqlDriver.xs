@@ -18,8 +18,8 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlDriver()
-##  QSqlDriver( = 0)
+##  QSqlDriver(QObject * parent)
+##  QSqlDriver(QObject * parent = 0)
   void
 QSqlDriver::new(...)
 PREINIT:
@@ -115,7 +115,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QString escapeIdentifier(, )
+## QString escapeIdentifier(const QString & identifier, QSqlDriver::IdentifierType type)
 void
 QSqlDriver::escapeIdentifier(...)
 PREINIT:
@@ -131,8 +131,8 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QString formatValue(, )
-## QString formatValue(,  = false)
+## QString formatValue(const QSqlField & field, bool trimStrings)
+## QString formatValue(const QSqlField & field, bool trimStrings = false)
 void
 QSqlDriver::formatValue(...)
 PREINIT:
@@ -187,7 +187,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool hasFeature()
+## bool hasFeature(QSqlDriver::DriverFeature f)
 void
 QSqlDriver::hasFeature(...)
 PREINIT:
@@ -201,7 +201,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool isIdentifierEscaped(, )
+## bool isIdentifierEscaped(const QString & identifier, QSqlDriver::IdentifierType type)
 void
 QSqlDriver::isIdentifierEscaped(...)
 PREINIT:
@@ -269,12 +269,12 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool open(, , , , , )
-## bool open(, , , , ,  = QString())
-## bool open(, , , ,  = -1,  = QString())
-## bool open(, , ,  = QString(),  = -1,  = QString())
-## bool open(, ,  = QString(),  = QString(),  = -1,  = QString())
-## bool open(,  = QString(),  = QString(),  = QString(),  = -1,  = QString())
+## bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts)
+## bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port, const QString & connOpts = QString())
+## bool open(const QString & db, const QString & user, const QString & password, const QString & host, int port = -1, const QString & connOpts = QString())
+## bool open(const QString & db, const QString & user, const QString & password, const QString & host = QString(), int port = -1, const QString & connOpts = QString())
+## bool open(const QString & db, const QString & user, const QString & password = QString(), const QString & host = QString(), int port = -1, const QString & connOpts = QString())
+## bool open(const QString & db, const QString & user = QString(), const QString & password = QString(), const QString & host = QString(), int port = -1, const QString & connOpts = QString())
 void
 QSqlDriver::open(...)
 PREINIT:
@@ -425,7 +425,7 @@ PPCODE:
         break;
     }
 
-## QSqlIndex primaryIndex()
+## QSqlIndex primaryIndex(const QString & tableName)
 void
 QSqlDriver::primaryIndex(...)
 PREINIT:
@@ -439,7 +439,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlRecord record()
+## QSqlRecord record(const QString & tableName)
 void
 QSqlDriver::record(...)
 PREINIT:
@@ -466,7 +466,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setNumericalPrecisionPolicy()
+## void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
 void
 QSqlDriver::setNumericalPrecisionPolicy(...)
 PREINIT:
@@ -478,7 +478,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## QString sqlStatement(, , , )
+## QString sqlStatement(QSqlDriver::StatementType type, const QString & tableName, const QSqlRecord & rec, bool preparedStatement)
 void
 QSqlDriver::sqlStatement(...)
 PREINIT:
@@ -498,7 +498,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QString stripDelimiters(, )
+## QString stripDelimiters(const QString & identifier, QSqlDriver::IdentifierType type)
 void
 QSqlDriver::stripDelimiters(...)
 PREINIT:
@@ -514,7 +514,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool subscribeToNotification()
+## bool subscribeToNotification(const QString & name)
 void
 QSqlDriver::subscribeToNotification(...)
 PREINIT:
@@ -541,7 +541,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QStringList tables()
+## QStringList tables(QSql::TableType tableType)
 void
 QSqlDriver::tables(...)
 PREINIT:
@@ -555,7 +555,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool unsubscribeFromNotification()
+## bool unsubscribeFromNotification(const QString & name)
 void
 QSqlDriver::unsubscribeFromNotification(...)
 PREINIT:

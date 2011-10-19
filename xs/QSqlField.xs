@@ -18,10 +18,10 @@ PROTOTYPES: DISABLE
 #### 
 ################################################################
 
-##  QSqlField()
-##  QSqlField(, )
-##  QSqlField(,  = QVariant::Invalid)
-##  QSqlField( = QString(),  = QVariant::Invalid)
+##  QSqlField(const QSqlField & other)
+##  QSqlField(const QString & fieldName, QVariant::Type type)
+##  QSqlField(const QString & fieldName, QVariant::Type type = QVariant::Invalid)
+##  QSqlField(const QString & fieldName = QString(), QVariant::Type type = QVariant::Invalid)
   void
 QSqlField::new(...)
 PREINIT:
@@ -208,7 +208,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool operator!=()
+## bool operator!=(const QSqlField & other)
 void
 QSqlField::operator_not_equal(...)
 PREINIT:
@@ -222,7 +222,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## QSqlField & operator=()
+## QSqlField & operator=(const QSqlField & other)
 void
 QSqlField::operator_assign(...)
 PREINIT:
@@ -236,7 +236,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## bool operator==()
+## bool operator==(const QSqlField & other)
 void
 QSqlField::operator_equal_to(...)
 PREINIT:
@@ -276,7 +276,7 @@ PPCODE:
     XSRETURN(1);
     }
 
-## void setAutoValue()
+## void setAutoValue(bool autoVal)
 void
 QSqlField::setAutoValue(...)
 PREINIT:
@@ -288,7 +288,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setDefaultValue()
+## void setDefaultValue(const QVariant & value)
 void
 QSqlField::setDefaultValue(...)
 PREINIT:
@@ -300,7 +300,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setGenerated()
+## void setGenerated(bool gen)
 void
 QSqlField::setGenerated(...)
 PREINIT:
@@ -312,7 +312,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setLength()
+## void setLength(int fieldLength)
 void
 QSqlField::setLength(...)
 PREINIT:
@@ -324,7 +324,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setName()
+## void setName(const QString & name)
 void
 QSqlField::setName(...)
 PREINIT:
@@ -336,7 +336,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setPrecision()
+## void setPrecision(int precision)
 void
 QSqlField::setPrecision(...)
 PREINIT:
@@ -348,7 +348,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setReadOnly()
+## void setReadOnly(bool readOnly)
 void
 QSqlField::setReadOnly(...)
 PREINIT:
@@ -360,7 +360,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setRequired()
+## void setRequired(bool required)
 void
 QSqlField::setRequired(...)
 PREINIT:
@@ -372,7 +372,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setRequiredStatus()
+## void setRequiredStatus(QSqlField::RequiredStatus status)
 void
 QSqlField::setRequiredStatus(...)
 PREINIT:
@@ -384,7 +384,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setSqlType()
+## void setSqlType(int type)
 void
 QSqlField::setSqlType(...)
 PREINIT:
@@ -396,7 +396,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setType()
+## void setType(QVariant::Type type)
 void
 QSqlField::setType(...)
 PREINIT:
@@ -408,7 +408,7 @@ PPCODE:
     XSRETURN(0);
     }
 
-## void setValue()
+## void setValue(const QVariant & value)
 void
 QSqlField::setValue(...)
 PREINIT:
