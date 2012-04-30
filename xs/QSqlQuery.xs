@@ -1,7 +1,7 @@
 ################################################################
 # THE FOLLOWING CODE IS AUTOMATED, ANY MODIFICATION WILL BE LOST!
 #
-# Copyright (C) 2007 - 2011 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
+# Copyright (C) 2007 - 2012 by Dongxu Ma <dongxu _at_ cpan _dot_ org>
 #
 # This library is free software; you can redistribute it and/or 
 # modify it under the same terms as Perl itself.
@@ -144,7 +144,7 @@ PPCODE:
       {
         if (sv_isa(ST(1), "Qt::Core::QVariant") && SvIOK(ST(2))) {
       arg00 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(1))));
-      arg01 = QFlags<QSql::ParamTypeFlag>((int)SvIV(ST(2)));
+      arg01 = QFlags<QSql::ParamTypeFlag>((QSql::ParamTypeFlag)SvIV(ST(2)));
     (void)THIS->addBindValue(*arg00, arg01);
     XSRETURN(0);
     }
@@ -214,14 +214,14 @@ PPCODE:
         if (sv_isa(ST(1), "Qt::Core::QString") && sv_isa(ST(2), "Qt::Core::QVariant") && SvIOK(ST(3))) {
       arg00 = reinterpret_cast<QString *>(SvIV((SV*)SvRV(ST(1))));
       arg01 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(2))));
-      arg02 = QFlags<QSql::ParamTypeFlag>((int)SvIV(ST(3)));
+      arg02 = QFlags<QSql::ParamTypeFlag>((QSql::ParamTypeFlag)SvIV(ST(3)));
     (void)THIS->bindValue(*arg00, *arg01, arg02);
     XSRETURN(0);
     }
         else if (SvIOK(ST(1)) && sv_isa(ST(2), "Qt::Core::QVariant") && SvIOK(ST(3))) {
       arg20 = (int)SvIV(ST(1));
       arg21 = reinterpret_cast<QVariant *>(SvIV((SV*)SvRV(ST(2))));
-      arg22 = QFlags<QSql::ParamTypeFlag>((int)SvIV(ST(3)));
+      arg22 = QFlags<QSql::ParamTypeFlag>((QSql::ParamTypeFlag)SvIV(ST(3)));
     (void)THIS->bindValue(arg20, *arg21, arg22);
     XSRETURN(0);
     }
@@ -266,6 +266,19 @@ PPCODE:
       default:
         Perl_croak(aTHX_ "wrong number/type of arguments passed in");
         break;
+    }
+
+## QMap<QString,QVariant> boundValues()
+void
+QSqlQuery::boundValues(...)
+PREINIT:
+PPCODE:
+    if (1) {
+      
+    QMap<QString,QVariant> ret = THIS->boundValues();
+    ST(0) = sv_newmortal();
+    sv_setref_pv(ST(0), "Qt::Sql::Template::T000", (void *)new QMap<QString,QVariant>(ret));
+    XSRETURN(1);
     }
 
 ## void clear()

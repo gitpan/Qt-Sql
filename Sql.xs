@@ -26,6 +26,7 @@
 
 typedef bool (*T_FPOINTER_QINTERNALCALLBACK_QNAMESPACE)(void **);
 typedef void (*T_FPOINTER_QTMSGHANDLER_QGLOBAL)(QtMsgType,const char *);
+typedef QMap<QString,QVariant> T000;
 
 MODULE = Qt		PACKAGE = Qt
 PROTOTYPES: DISABLE
@@ -45,3 +46,4 @@ INCLUDE:		xs/QSqlRelation.xs
 INCLUDE:		xs/QSqlRelationalTableModel.xs
 INCLUDE:		xs/QSqlResult.xs
 INCLUDE:		xs/QSqlTableModel.xs
+INCLUDE:		xs/T000.xs

@@ -5,12 +5,13 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 17;
+use Test::More tests => 18;
 BEGIN {
 use_ok('Qt::Sql');
 use_ok('Qt::Sql');
 use_ok('Qt::Sql::QSqlIndex');
 use_ok('Qt::Sql::QSqlRecord');
+use_ok('Qt::Sql::Template');
 use_ok('Qt::Sql::QSqlRelationalTableModel');
 use_ok('Qt::Sql::QSqlError');
 use_ok('Qt::Sql::QSqlResult');

@@ -21,6 +21,7 @@ QSqlResult *                            		T_PTROBJ_0017
 QSqlDatabase *                          		T_PTROBJ_0018
 QSqlField *                             		T_PTROBJ_0019
 QBool *                                 		T_PTROBJ_0020
+T000 *                                  		T_PTROBJ_0021
 
 ################################################################
 INPUT
@@ -150,6 +151,12 @@ T_PTROBJ_0020
     else
         Perl_croak(aTHX_ \"$var is not of type Qt::Core::QBool\");
 
+T_PTROBJ_0021
+    if (sv_derived_from($arg, \"Qt::Sql::Template::T000\"))
+        $var = reinterpret_cast<$type>(SvIV((SV*)SvRV($arg)));
+    else
+        Perl_croak(aTHX_ \"$var is not of type Qt::Sql::Template::T000\");
+
 
 ################################################################
 OUTPUT
@@ -215,4 +222,7 @@ T_PTROBJ_0019
 
 T_PTROBJ_0020
     sv_setref_pv($arg, \"Qt::Core::QBool\", (void *)$var);
+
+T_PTROBJ_0021
+    sv_setref_pv($arg, \"Qt::Sql::Template::T000\", (void *)$var);
 

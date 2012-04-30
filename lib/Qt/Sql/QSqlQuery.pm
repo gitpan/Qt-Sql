@@ -7,7 +7,7 @@ use strict;
 use warnings;
 #use Carp;
 
-our $VERSION = '0.01_03';
+our $VERSION = '0.01_04';
 
 
 # FIXME: operator overload
@@ -54,6 +54,8 @@ Qt::Sql::QSqlQuery
 =item  QVariant boundValue(const QString & placeholder)
 
 =item  QVariant boundValue(int pos)
+
+=item  QMap<QString,QVariant> boundValues()
 
 =item  void clear()
 
@@ -145,7 +147,7 @@ Dongxu Ma E<lt>dongxu@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 - 2011 by Dongxu Ma
+Copyright (C) 2011 - 2012 by Dongxu Ma
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

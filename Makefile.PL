@@ -18,7 +18,7 @@ EOF
 # the contents of the Makefile that is written.
 WriteMakefile(
     NAME         => 'Qt::Sql',
-    VERSION      => '0.01_03',
+    VERSION      => '0.01_04',
     LICENSE      => 'perl',
     PREREQ_PM    => {},
     ABSTRACT     => 'Qt Sql binding',
